@@ -228,9 +228,22 @@ export default function MCPMarket({ onBack, keyword: externalKeyword }: MCPMarke
 		});
 	}, []);
 
+	// Limit visible items to 10 for performance
+	const ITEMS_PER_PAGE = 10;
+	const [visiblePage, setVisiblePage] = useState(1);
+
+	// Calculate visible items (only render 10 at a time)
+	const visibleItems = useMemo(() => {
+		const start = (visiblePage - 1) * ITEMS_PER_PAGE;
+		const end = start + ITEMS_PER_PAGE;
+		return items.slice(start, end);
+	}, [items, visiblePage]);
+
+	const totalPages = Math.ceil(items.length / ITEMS_PER_PAGE);
+
 	// load data
 	const loadData = useCallback(
-		async (pageNum: number, kw: string, catId?: number, pageSize = 20) => {
+		async (pageNum: number, kw: string, catId?: number, pageSize = 10) => {
 			setIsLoading(true);
 			setError("");
 			try {
@@ -238,16 +251,10 @@ export default function MCPMarket({ onBack, keyword: externalKeyword }: MCPMarke
 				if (catId) params.category_id = catId;
 				const res = await proxyFetchGet("/api/mcps", params);
 				if (res && Array.isArray(res.items)) {
-					// frontend deduplication
-					const all: MCPItem[] =
-						pageNum === 1 ? res.items : [...items, ...res.items];
-					const unique: MCPItem[] = Array.from(
-						new Map(all.map((i: MCPItem) => [i.id, i])).values()
-					);
-					setItems(unique);
+					setItems(res.items);
 					setHasMore(res.items.length === pageSize);
 				} else {
-					if (pageNum === 1) setItems([]);
+					setItems([]);
 					setHasMore(false);
 				}
 			} catch (err: any) {
@@ -256,37 +263,15 @@ export default function MCPMarket({ onBack, keyword: externalKeyword }: MCPMarke
 				setIsLoading(false);
 			}
 		},
-		[items]
+		[]
 	);
 
 	useEffect(() => {
 		setPage(1);
+		setVisiblePage(1);
 		loadData(1, debouncedKeyword, effectiveCategoryId);
 		// eslint-disable-next-line
 	}, [debouncedKeyword, effectiveCategoryId]);
-
-	useEffect(() => {
-		if (page > 1) loadData(page, debouncedKeyword, effectiveCategoryId);
-		// eslint-disable-next-line
-	}, [page]);
-
-	useEffect(() => {
-		if (!hasMore || isLoading) return;
-		const node = loader.current;
-		if (!node) return;
-		const observer = new window.IntersectionObserver(
-			(entries) => {
-				if (entries[0].isIntersecting) {
-					setPage((p) => (isLoading || !hasMore ? p : p + 1));
-				}
-			},
-			{ root: null, rootMargin: "0px", threshold: 0.1 }
-		);
-		observer.observe(node);
-		return () => {
-			observer.disconnect();
-		};
-	}, [hasMore, isLoading]);
 
 	const checkEnv = (id: number) => {
 		const mcp = items.find((mcp) => mcp.id === id);
@@ -357,7 +342,7 @@ export default function MCPMarket({ onBack, keyword: externalKeyword }: MCPMarke
 				prev.filter((item) => item !== deleteTarget.id)
 			);
 			setInstalled((prev) => ({ ...prev, [deleteTarget.id]: false }));
-			loadData(1, debouncedKeyword, categoryId, page * 20);
+			loadData(1, debouncedKeyword, categoryId);
 		} catch (e) {
 			console.log(e);
 		}
@@ -422,7 +407,8 @@ export default function MCPMarket({ onBack, keyword: externalKeyword }: MCPMarke
         {!isLoading && !error && items.length === 0 && (
           <div className="text-center py-8 text-text-disabled">{t("setting.no-mcp-services")}</div>
         )}
-				{items.map((item) => (
+				{/* Only render visible items (10 at a time) */}
+				{visibleItems.map((item) => (
 					<MCPItemCard
 						key={item.id}
 						item={item}
@@ -434,15 +420,31 @@ export default function MCPMarket({ onBack, keyword: externalKeyword }: MCPMarke
 						t={t}
 					/>
 				))}
-				<div ref={loader} />
-        {isLoading && items.length > 0 && (
-          <div className="text-center py-4 text-text-disabled">{t("setting.loading-more")}</div>
-        )}
-        {!hasMore && items.length > 0 && (
-          <div className="text-center py-4 text-text-disabled">
-            {t("setting.no-more-mcp-servers")}
-          </div>
-        )}
+
+				{/* Pagination controls */}
+				{items.length > ITEMS_PER_PAGE && (
+					<div className="flex items-center justify-center gap-2 py-4">
+						<Button
+							variant="outline"
+							size="sm"
+							onClick={() => setVisiblePage(p => Math.max(1, p - 1))}
+							disabled={visiblePage === 1}
+						>
+							Previous
+						</Button>
+						<span className="text-sm text-text-body">
+							Page {visiblePage} of {totalPages}
+						</span>
+						<Button
+							variant="outline"
+							size="sm"
+							onClick={() => setVisiblePage(p => Math.min(totalPages, p + 1))}
+							disabled={visiblePage === totalPages}
+						>
+							Next
+						</Button>
+					</div>
+				)}
 			</div>
 		</div>
 	);

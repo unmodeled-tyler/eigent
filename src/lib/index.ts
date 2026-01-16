@@ -63,20 +63,8 @@ export function hasStackKeys() {
 // Re-export replay utilities
 export { replayProject, replayActiveTask } from './replay';
 
+// Disabled for local-only version - no cloud log uploads
 export async function uploadLog(taskId: string, type?: string | undefined) {
-	if (import.meta.env.VITE_USE_LOCAL_PROXY !== "true" && !type) {
-		try {
-			const { email, token } = getAuthStore()
-			const baseUrl = import.meta.env.DEV ? import.meta.env.VITE_PROXY_URL : import.meta.env.VITE_BASE_URL
-			
-			await window.electronAPI.uploadLog(
-				email,
-				taskId,
-				baseUrl,
-				token
-			);
-		} catch (error) {
-			console.error('Failed to upload log:', error);
-		}
-	}
+	// No-op for local version
+	return Promise.resolve();
 }
