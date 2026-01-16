@@ -1,53 +1,34 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { LogOut, Settings, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import light from "@/assets/light.png";
 import dark from "@/assets/dark.png";
 import transparent from "@/assets/transparent.png";
 import { useAuthStore } from "@/store/authStore";
-import { useInstallationStore } from "@/store/installationStore";
-import { useNavigate } from "react-router-dom";
-import { proxyFetchPut, proxyFetchGet } from "@/api/http";
-import { createRef, RefObject } from "react";
 import { useEffect, useState } from "react";
-import { useChatStore } from "@/store/chatStore";
 import { LocaleEnum, switchLanguage } from "@/i18n";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 
 import {
-	Select,
-	SelectContent,
-	SelectGroup,
-	SelectItem,
-	SelectLabel,
-	SelectTrigger,
-	SelectValue,
+Select,
+SelectContent,
+SelectGroup,
+SelectItem,
+SelectLabel,
+SelectTrigger,
+SelectValue,
 } from "@/components/ui/select";
-import useChatStoreAdapter from "@/hooks/useChatStoreAdapter";
 
 export default function SettingGeneral() {
-	const { t } = useTranslation();
-	const authStore = useAuthStore();
+const { t } = useTranslation();
+const authStore = useAuthStore();
 
-	const resetInstallation = useInstallationStore(state => state.reset);
-	const setNeedsBackendRestart = useInstallationStore(state => state.setNeedsBackendRestart);
-
-	const navigate = useNavigate();
-	const [isLoading, setIsLoading] = useState(false);
-	const setAppearance = authStore.setAppearance;
-	const language = authStore.language;
-	const setLanguage = authStore.setLanguage;
-	const appearance = authStore.appearance;
-	const fullNameRef: RefObject<HTMLInputElement> = createRef();
-	const nickNameRef: RefObject<HTMLInputElement> = createRef();
-	const workDescRef: RefObject<HTMLInputElement> = createRef();
-	//Get Chatstore for the active project's task
-	const { chatStore } = useChatStoreAdapter();
-	if (!chatStore) {
-		return <div>Loading...</div>;
-	}
+const setAppearance = authStore.setAppearance;
+const language = authStore.language;
+const setLanguage = authStore.setLanguage;
+const appearance = authStore.appearance;
 	
 
 	const [themeList, setThemeList] = useState<any>([
@@ -137,47 +118,9 @@ export default function SettingGeneral() {
 		}
 	}, []);
 
-	return (
-		<div className="space-y-8">
-			<div className="px-6 py-4 bg-surface-secondary rounded-2xl">
-				<div className="text-base font-bold leading-12 text-text-body">
-					{t("setting.account")}
-				</div>
-				<div className="text-sm leading-13 mb-4">
-					{t("setting.you-are-currently-signed-in-with", {
-						email: authStore.email,
-					})}
-				</div>
-				<div className="flex items-center gap-sm">
-					<Button
-						onClick={() => {
-							window.location.href = `https://www.node.ai/dashboard?email=${authStore.email}`;
-						}}
-						variant="primary"
-						size="xs"
-					>
-						<Settings className="w-4 h-4 text-button-primary-icon-default" />
-						{t("setting.manage")}
-					</Button>
-					<Button
-						variant="outline"
-						size="xs"
-						onClick={() => {
-							chatStore.clearTasks();
-
-							resetInstallation(); // Reset installation state for new account
-							setNeedsBackendRestart(true); // Mark that backend is restarting
-
-							authStore.logout();
-							navigate("/login");
-						}}
-					>
-						<LogOut className="w-4 h-4 text-button-tertiery-text-default" />
-						{t("setting.log-out")}
-					</Button>
-				</div>
-			</div>
-			<div className="px-6 py-4 bg-surface-secondary rounded-2xl">
+  return (
+<div className="space-y-8">
+<div className="px-6 py-4 bg-surface-secondary rounded-2xl">
 				<div className="text-base font-bold leading-12 text-text-primary">
 					{t("setting.language")}
 				</div>

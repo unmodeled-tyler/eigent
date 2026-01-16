@@ -61,17 +61,17 @@ interface AuthState {
 const authStore = create<AuthState>()(
 	persist(
 		(set, get) => ({
-			// initial state
-			token: null,
-			username: null,
-			email: null,
-			user_id: null,
-			appearance: 'light',
-			language: 'system',
-			isFirstLaunch: true,
-			modelType: 'cloud',
-			cloud_model_type: 'gpt-4.1',
-			initState: 'permissions',
+      // initial state
+      token: null,
+      username: null,
+      email: null,
+      user_id: null,
+      appearance: 'light',
+      language: 'system',
+      isFirstLaunch: false,
+      modelType: 'cloud',
+      cloud_model_type: 'gpt-4.1',
+      initState: 'done',
 			share_token: null,
 			localProxyValue: null,
 			workerListData: {},
