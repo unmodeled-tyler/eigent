@@ -336,10 +336,6 @@ export default function Browser() {
 						</div>
 					</div>
           
-					<div className="flex-1 w-full items-center justify-center text-label-xs text-text-label text-center">
-						For more information, check out our 
-					<a href="https://www.node.ai/privacy-policy" target="_blank" className="text-text-information underline ml-1">{t("layout.privacy-policy")}</a>
-          </div>
 
 				</div>
 			</div>

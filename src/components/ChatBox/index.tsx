@@ -2,7 +2,6 @@ import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { fetchPost, proxyFetchPut, fetchPut, fetchDelete, proxyFetchDelete } from "@/api/http";
 import BottomBox from "./BottomBox";
 import { ProjectChatContainer } from "./ProjectChatContainer";
-import { TriangleAlert } from "lucide-react";
 import { generateUniqueId } from "@/lib";
 import { proxyFetchGet } from "@/api/http";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -826,66 +825,8 @@ export default function ChatBox(): JSX.Element {
 								}}
 							/>
 						)}
-						<div className="h-[210px] flex justify-center items-start gap-2 mt-3 pr-2">
-							{!privacy ? (
-								<div className="flex items-center gap-2">
-									<div
-										onClick={(e) => {
-											// Check if the click target is an anchor tag
-											const target = e.target as HTMLElement;
-											if (target.tagName === "A") {
-												// Let the anchor tag handle the click naturally
-												return;
-											}
-
-											// Enable privacy permissions
-											const API_FIELDS = [
-												"take_screenshot",
-												"access_local_software",
-												"access_your_address",
-												"password_storage",
-											];
-											const requestData = {
-												[API_FIELDS[0]]: true,
-												[API_FIELDS[1]]: true,
-												[API_FIELDS[2]]: true,
-												[API_FIELDS[3]]: true,
-											};
-											proxyFetchPut("/api/user/privacy", requestData);
-											setPrivacy(true);
-										}}
-										className=" cursor-pointer flex items-center gap-1 px-sm py-xs rounded-md bg-surface-information"
-									>
-										<TriangleAlert
-											size={20}
-											className="text-icon-information"
-										/>
-										<span className=" flex-1 text-text-information text-xs font-medium leading-[20px]">
-											{t("layout.by-messaging-node")}{" "}
-											<a
-												href="https://www.node.ai/terms-of-use"
-												target="_blank"
-												className="text-text-information underline"
-												onClick={(e) => e.stopPropagation()}
-											>
-												{t("layout.terms-of-use")}
-											</a>{" "}
-											{t("layout.and")}{" "}
-											<a
-												href="https://www.node.ai/privacy-policy"
-												target="_blank"
-												className="text-text-information underline"
-												onClick={(e) => e.stopPropagation()}
-											>
-												{t("layout.privacy-policy")}
-											</a>
-											.
-										</span>
-									</div>
-								</div>
-							) : null}
-							{privacy && (
-									<div className="mr-2 flex flex-col items-center gap-2">
+<div className="h-[210px] flex justify-center items-start gap-2 mt-3 pr-2">
+<div className="mr-2 flex flex-col items-center gap-2">
 										{[
 											{
 												label: t("layout.it-ticket-creation"),
@@ -920,12 +861,11 @@ export default function ChatBox(): JSX.Element {
 												<span>{label}</span>
 											</div>
 										))}
-									</div>
-								)}
-						</div>
-					</div>
-				</div>
-			)}
-		</div>
-	);
+</div>
+</div>
+</div>
+</div>
+)}
+</div>
+);
 }
