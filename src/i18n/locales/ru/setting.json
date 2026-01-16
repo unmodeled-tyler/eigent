@@ -13,7 +13,8 @@
 	"select-language": "Выберите язык",
 	"system-default": "По умолчанию в системе",
 	"appearance": "Внешний вид",
-	"light": "Светлый",
+	"dark": "Dark",
+"light": "Светлый",
 	"transparent": "Прозрачный",
 
 	"data-privacy": "Конфиденциальность данных",

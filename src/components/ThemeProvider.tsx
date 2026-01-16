@@ -11,16 +11,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 		// remove all possible data-theme attributes
 		root.removeAttribute('data-theme');
 
-		// set the corresponding data-theme based on appearance
-		if (appearance === "transparent") {
-			root.setAttribute("data-theme", "transparent");
-		} else if (appearance === "light") {
+// set the corresponding data-theme based on appearance
+if (appearance === "transparent") {
+root.setAttribute("data-theme", "dark");
+} else if (appearance === "light") {
       root.setAttribute('data-theme', 'light');
     } else if (appearance === 'dark') {
       root.setAttribute('data-theme', 'dark');
     }
     else {
-      root.setAttribute('data-theme', 'light');
+      root.setAttribute('data-theme', 'dark');
     }
 
   }, [appearance]);
@@ -32,14 +32,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
     if (!currentTheme) {
       if (appearance === 'transparent') {
-        root.setAttribute('data-theme', 'transparent');
+        root.setAttribute('data-theme', 'dark');
       } else if (appearance === 'dark') {
         root.setAttribute('data-theme', 'dark');
-      } else {
+      } else if (appearance === 'light') {
         root.setAttribute('data-theme', 'light');
+      } else {
+        root.setAttribute('data-theme', 'dark');
       }
-		}
+}
 	}, []); // only execute once when the component is mounted
 
   return <>{children}</>;
-} 
+}

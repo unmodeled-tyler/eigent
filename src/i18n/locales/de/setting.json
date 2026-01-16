@@ -12,8 +12,9 @@
 	"language": "Sprache",
 	"select-language": "Sprache auswählen",
 	"system-default": "Systemstandard",
-	"appearance": "Erscheinungsbild",
-	"light": "Hell",
+"appearance": "Erscheinungsbild",
+"dark": "Dunkel",
+"light": "Hell",
 	"transparent": "Transparent",
 
 	"data-privacy": "Datenschutz",

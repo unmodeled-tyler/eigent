@@ -12,9 +12,10 @@
 	"language": "语言",
 	"select-language": "选择语言",
 	"system-default": "系统默认",
-	"appearance": "外观",
-	"light": "亮色",
-	"transparent": "透明",
+"appearance": "外观",
+"dark": "深色",
+"light": "亮色",
+"transparent": "透明",
 
 	"data-privacy": "数据隐私",
 	"data-privacy-description": "Node 基于本地优先原则确保您的隐私。您的数据默认存储在您的设备上。云功能是可选的，仅使用最小的数据来实现功能。详细信息请访问我们的",

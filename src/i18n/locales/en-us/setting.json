@@ -12,9 +12,10 @@
 	"language": "Language",
 	"select-language": "Select language",
 	"system-default": "System Default",
-	"appearance": "Appearance",
-	"light": "Light",
-	"transparent": "Transparent",
+"appearance": "Appearance",
+"dark": "Dark",
+"light": "Light",
+"transparent": "Transparent",
 
 	"data-privacy": "Data Privacy",
 	"data-privacy-description": "Node is built on a local-first principle to ensure your privacy. Your data remains on your device by default. Cloud features are optional and only use the minimum data necessary to function. For full details, visit our",
@@ -191,5 +192,3 @@
 	"all-cookies-deleted": "All cookies have been deleted successfully.",
 	"cookie-delete-warning": "Note: Deleting cookies will log you out of the associated websites. You may need to restart the browser to see changes take effect."
 	}
-
-

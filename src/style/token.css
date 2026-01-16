@@ -1,178 +1,218 @@
 @layer base {
   :root {
-    /* Red */
-    --colors-red-50: #fef2f2;
-    --colors-red-100: #ffe2e2;
-    --colors-red-200: #ffc9c9;
-    --colors-red-300: #ffa2a2;
-    --colors-red-400: #ff6467;
-    --colors-red-500: #fb2c36;
-    --colors-red-700: #c10007;
-    --colors-red-800: #9f0712;
-    --colors-red-900: #82181a;
-    --colors-red-950: #460809;
-    --colors-red-default: #e7000b;
-    /* Yellow */
-    --colors-yellow-50: #fefce8;
-    --colors-yellow-100: #fef9c2;
-    --colors-yellow-200: #fff085;
-    --colors-yellow-300: #ffdf20;
-    --colors-yellow-400: #fdc700;
-    --colors-yellow-500: #f0b100;
-    --colors-yellow-700: #a65f00;
-    --colors-yellow-800: #894b00;
-    --colors-yellow-900: #733e0a;
-    --colors-yellow-950: #432004;
-    --colors-yellow-default: #d08700;
-    /* Green */
-    --colors-green-50: #f0fdf4;
-    --colors-green-100: #dcfce7;
-    --colors-green-200: #b9f8cf;
-    --colors-green-300: #7bf1a8;
-    --colors-green-400: #05df72;
-    --colors-green-500: #00c950;
-    --colors-green-700: #008236;
-    --colors-green-800: #016630;
-    --colors-green-900: #0d542b;
-    --colors-green-950: #032e15;
-    --colors-green-default: #00a63e;
-    /* Indigo */
-    --colors-indigo-50: #eef2ff;
-    --colors-indigo-100: #e0e7ff;
-    --colors-indigo-200: #c6d2ff;
-    --colors-indigo-300: #a3b3ff;
-    --colors-indigo-400: #7c86ff;
-    --colors-indigo-500: #615fff;
-    --colors-indigo-700: #432dd7;
-    --colors-indigo-800: #372aac;
-    --colors-indigo-900: #312c85;
-    --colors-indigo-950: #1e1a4d;
-    --colors-indigo-default: #4f39f6;
-    /* Blue */
-    --colors-blue-50: #eff6ff;
-    --colors-blue-100: #dbeafe;
-    --colors-blue-200: #bedbff;
-    --colors-blue-300: #8ec5ff;
-    --colors-blue-400: #51a2ff;
-    --colors-blue-500: #2b7fff;
-    --colors-blue-700: #1447e6;
-    --colors-blue-800: #193cb8;
-    --colors-blue-900: #1c398e;
-    --colors-blue-950: #162456;
-    --colors-blue-default: #155dfc;
-    /* Amber */
-    --colors-amber-50: #fffbeb;
-    --colors-amber-100: #fef3c6;
-    --colors-amber-200: #fee685;
-    --colors-amber-300: #ffd230;
-    --colors-amber-400: #ffb900;
-    --colors-amber-500: #fe9a00;
-    --colors-amber-700: #bb4d00;
-    --colors-amber-800: #973c00;
-    --colors-amber-900: #7b3306;
-    --colors-amber-950: #461901;
-    --colors-amber-default: #e17100;
-    /* Emerald */
-    --colors-emerald-50: #ecfdf5;
-    --colors-emerald-100: #d0fae5;
-    --colors-emerald-200: #a4f4cf;
-    --colors-emerald-300: #5ee9b5;
-    --colors-emerald-400: #00d492;
-    --colors-emerald-500: #00bc7d;
-    --colors-emerald-700: #007a55;
-    --colors-emerald-800: #006045;
-    --colors-emerald-900: #004f3b;
-    --colors-emerald-950: #002c22;
-    --colors-emerald-default: #009966;
-    /* Purple */
-    --colors-purple-50: #faf5ff;
-    --colors-purple-100: #f3e8ff;
-    --colors-purple-200: #e9d5ff;
-    --colors-purple-300: #d8b4fe;
-    --colors-purple-400: #c084fc;
-    --colors-purple-500: #a855f7;
-    --colors-purple-700: #7e22ce;
-    --colors-purple-800: #6b21a8;
-    --colors-purple-900: #581c87;
-    --colors-purple-default: #9333ea;
-    /* Orange */
-    --colors-orange-50: #fff7ed;
-    --colors-orange-100: #ffedd4;
-    --colors-orange-200: #ffd6a8;
-    --colors-orange-300: #ffb86a;
-    --colors-orange-400: #ff8904;
-    --colors-orange-500: #ff6900;
-    --colors-orange-700: #ca3500;
-    --colors-orange-800: #9f2d00;
-    --colors-orange-900: #7e2a0c;
-    --colors-orange-950: #441306;
-    --colors-orange-default: #f54900;
-    /* Sky */
-    --colors-sky-50: #f0f9ff;
-    --colors-sky-100: #dff2fe;
-    --colors-sky-200: #b8e6fe;
-    --colors-sky-300: #74d4ff;
-    --colors-sky-400: #00bcff;
-    --colors-sky-500: #00a6f4;
-    --colors-sky-700: #0069a8;
-    --colors-sky-800: #00598a;
-    --colors-sky-900: #024a70;
-    --colors-sky-950: #052f4a;
-    --colors-sky-default: #0084d1;
-    /* Fuchsia */
-    --colors-fuchsia-50: #fdf4ff;
-    --colors-fuchsia-100: #fae8ff;
-    --colors-fuchsia-200: #f6cfff;
-    --colors-fuchsia-300: #f4a8ff;
-    --colors-fuchsia-400: #ed6aff;
-    --colors-fuchsia-500: #e12afb;
-    --colors-fuchsia-700: #a800b7;
-    --colors-fuchsia-800: #8a0194;
-    --colors-fuchsia-900: #721378;
-    --colors-fuchsia-950: #4b004f;
-    --colors-fuchsia-default: #c800de;
-    /* Black */
-    --colors-black-0: #00000000;
-    --colors-black-10: #0000001a;
-    --colors-black-30: #0000004d;
-    --colors-black-50: #00000080;
-    --colors-black-80: #000000cc;
-    --colors-black-100: #000000;
-    /* Primary */
-    --colors-primary-1: #f5f5f5;
-    --colors-primary-2: #eeeeee;
-    --colors-primary-3: #cccccc;
-    --colors-primary-4: #aaaaaa;
-    --colors-primary-5: #888888;
-    --colors-primary-6: #666666;
-    --colors-primary-7: #444444;
-    --colors-primary-8: #333333;
-    --colors-primary-10: #111111;
-    --colors-primary-11: #000000;
-    --colors-primary-default: #222222;
-    /* Off-White */
-    --colors-off-white-0: #f5f5f500;
-    --colors-off-white-10: #f5f5f51a;
-    --colors-off-white-30: #f5f5f54d;
-    --colors-off-white-50: #f5f5f580;
-    --colors-off-white-80: #f5f5f5cc;
-    --colors-off-white-100: #f5f5f5;
-    /* White */
-    --colors-white-0: #ffffff00;
-    --colors-white-10: #ffffff1a;
-    --colors-white-30: #ffffff4d;
-    --colors-white-50: #ffffff80;
-    --colors-white-80: #ffffffcc;
-    --colors-white-100: #ffffff;
-    /* Off-Black */
-    --colors-off-black-0: #1d1c1b00;
-    --colors-off-black-10: #1d1c1b1a;
-    --colors-off-black-30: #1d1c1b4d;
-    --colors-off-black-50: #1d1c1b80;
-    --colors-off-black-80: #1d1c1bcc;
-    --colors-off-black-100: #1d1c1b;
+    /* Nord Polar Night (Dark backgrounds) */
+    --nord0: #2E3440;
+    --nord1: #3B4252;
+    --nord2: #434C5E;
+    --nord3: #4C566A;
+    
+    /* Nord Snow Storm (Light text/elements) */
+    --nord4: #D8DEE9;
+    --nord5: #E5E9F0;
+    --nord6: #ECEFF4;
+    
+    /* Nord Frost (Accent blues/cyans) */
+    --nord7: #8FBCBB;
+    --nord8: #88C0D0;
+    --nord9: #81A1C1;
+    --nord10: #5E81AC;
+    
+    /* Nord Aurora (Accent colors) */
+    --nord11: #BF616A; /* Red */
+    --nord12: #D08770; /* Orange */
+    --nord13: #EBCB8B; /* Yellow */
+    --nord14: #A3BE8C; /* Green */
+    --nord15: #B48EAD; /* Purple */
+
+    /* Red - Nord Aurora Red */
+    --colors-red-50: #3d2a2c;
+    --colors-red-100: #4d3335;
+    --colors-red-200: #5e3c3e;
+    --colors-red-300: #7a4a4d;
+    --colors-red-400: #994f54;
+    --colors-red-500: #BF616A;
+    --colors-red-700: #d4848b;
+    --colors-red-800: #dfa0a5;
+    --colors-red-900: #e9bcbf;
+    --colors-red-950: #f4d8da;
+    --colors-red-default: #BF616A;
+    
+    /* Yellow - Nord Aurora Yellow */
+    --colors-yellow-50: #3d3828;
+    --colors-yellow-100: #4d4630;
+    --colors-yellow-200: #5e5538;
+    --colors-yellow-300: #7a7048;
+    --colors-yellow-400: #b3a367;
+    --colors-yellow-500: #EBCB8B;
+    --colors-yellow-700: #f0d6a2;
+    --colors-yellow-800: #f4e0b8;
+    --colors-yellow-900: #f8eacf;
+    --colors-yellow-950: #fcf5e5;
+    --colors-yellow-default: #EBCB8B;
+    
+    /* Green - Nord Aurora Green */
+    --colors-green-50: #2d3329;
+    --colors-green-100: #374032;
+    --colors-green-200: #414d3b;
+    --colors-green-300: #55664d;
+    --colors-green-400: #7a9a6a;
+    --colors-green-500: #A3BE8C;
+    --colors-green-700: #b5cba3;
+    --colors-green-800: #c7d8ba;
+    --colors-green-900: #d9e5d1;
+    --colors-green-950: #ebf2e8;
+    --colors-green-default: #A3BE8C;
+    
+    /* Indigo/Blue - Nord Frost */
+    --colors-indigo-50: #2a3040;
+    --colors-indigo-100: #33394d;
+    --colors-indigo-200: #3c435a;
+    --colors-indigo-300: #4e5873;
+    --colors-indigo-400: #6a7a99;
+    --colors-indigo-500: #81A1C1;
+    --colors-indigo-700: #9ab4ce;
+    --colors-indigo-800: #b3c7db;
+    --colors-indigo-900: #ccdae8;
+    --colors-indigo-950: #e6edf4;
+    --colors-indigo-default: #5E81AC;
+    
+    /* Blue - Nord Frost */
+    --colors-blue-50: #2a3540;
+    --colors-blue-100: #33404d;
+    --colors-blue-200: #3c4b5a;
+    --colors-blue-300: #4e6173;
+    --colors-blue-400: #6a8999;
+    --colors-blue-500: #88C0D0;
+    --colors-blue-700: #9fcdd9;
+    --colors-blue-800: #b6dae2;
+    --colors-blue-900: #cde7ec;
+    --colors-blue-950: #e4f4f5;
+    --colors-blue-default: #81A1C1;
+    
+    /* Amber/Orange - Nord Aurora Orange */
+    --colors-amber-50: #3d3028;
+    --colors-amber-100: #4d3c30;
+    --colors-amber-200: #5e4838;
+    --colors-amber-300: #7a5f48;
+    --colors-amber-400: #b38460;
+    --colors-amber-500: #D08770;
+    --colors-amber-700: #d99f8d;
+    --colors-amber-800: #e2b7aa;
+    --colors-amber-900: #ebcfc6;
+    --colors-amber-950: #f4e7e3;
+    --colors-amber-default: #D08770;
+    
+    /* Emerald - Nord Frost Teal */
+    --colors-emerald-50: #2a3535;
+    --colors-emerald-100: #334040;
+    --colors-emerald-200: #3c4b4b;
+    --colors-emerald-300: #4e6161;
+    --colors-emerald-400: #6a8989;
+    --colors-emerald-500: #8FBCBB;
+    --colors-emerald-700: #a5c9c8;
+    --colors-emerald-800: #bbd6d5;
+    --colors-emerald-900: #d1e3e2;
+    --colors-emerald-950: #e7f0ef;
+    --colors-emerald-default: #8FBCBB;
+    
+    /* Purple - Nord Aurora Purple */
+    --colors-purple-50: #352d35;
+    --colors-purple-100: #403740;
+    --colors-purple-200: #4b414b;
+    --colors-purple-300: #615561;
+    --colors-purple-400: #897089;
+    --colors-purple-500: #B48EAD;
+    --colors-purple-700: #c3a4be;
+    --colors-purple-800: #d2bacf;
+    --colors-purple-900: #e1d0e0;
+    --colors-purple-default: #B48EAD;
+    
+    /* Orange - Nord Aurora Orange */
+    --colors-orange-50: #3d3028;
+    --colors-orange-100: #4d3c30;
+    --colors-orange-200: #5e4838;
+    --colors-orange-300: #7a5f48;
+    --colors-orange-400: #b38460;
+    --colors-orange-500: #D08770;
+    --colors-orange-700: #d99f8d;
+    --colors-orange-800: #e2b7aa;
+    --colors-orange-900: #ebcfc6;
+    --colors-orange-950: #f4e7e3;
+    --colors-orange-default: #D08770;
+    
+    /* Sky - Nord Frost */
+    --colors-sky-50: #2a3540;
+    --colors-sky-100: #33404d;
+    --colors-sky-200: #3c4b5a;
+    --colors-sky-300: #4e6173;
+    --colors-sky-400: #6a8999;
+    --colors-sky-500: #88C0D0;
+    --colors-sky-700: #9fcdd9;
+    --colors-sky-800: #b6dae2;
+    --colors-sky-900: #cde7ec;
+    --colors-sky-950: #e4f4f5;
+    --colors-sky-default: #88C0D0;
+    
+    /* Fuchsia - Nord Aurora Purple variant */
+    --colors-fuchsia-50: #352d35;
+    --colors-fuchsia-100: #403740;
+    --colors-fuchsia-200: #4b414b;
+    --colors-fuchsia-300: #615561;
+    --colors-fuchsia-400: #897089;
+    --colors-fuchsia-500: #B48EAD;
+    --colors-fuchsia-700: #c3a4be;
+    --colors-fuchsia-800: #d2bacf;
+    --colors-fuchsia-900: #e1d0e0;
+    --colors-fuchsia-950: #f0e6ef;
+    --colors-fuchsia-default: #B48EAD;
+    
+    /* Black - Nord Polar Night */
+    --colors-black-0: #2E344000;
+    --colors-black-10: #2E34401a;
+    --colors-black-30: #2E34404d;
+    --colors-black-50: #2E344080;
+    --colors-black-80: #2E3440cc;
+    --colors-black-100: #2E3440;
+    
+    /* Primary - Nord grayscale using Polar Night and Snow Storm */
+    --colors-primary-1: #ECEFF4;
+    --colors-primary-2: #E5E9F0;
+    --colors-primary-3: #D8DEE9;
+    --colors-primary-4: #4C566A;
+    --colors-primary-5: #434C5E;
+    --colors-primary-6: #3B4252;
+    --colors-primary-7: #D8DEE9;
+    --colors-primary-8: #E5E9F0;
+    --colors-primary-10: #ECEFF4;
+    --colors-primary-11: #ECEFF4;
+    --colors-primary-default: #D8DEE9;
+    
+    /* Off-White - Nord Snow Storm with transparency */
+    --colors-off-white-0: #ECEFF400;
+    --colors-off-white-10: #ECEFF41a;
+    --colors-off-white-30: #ECEFF44d;
+    --colors-off-white-50: #ECEFF480;
+    --colors-off-white-80: #ECEFF4cc;
+    --colors-off-white-100: #ECEFF4;
+    
+    /* White - Nord Snow Storm with transparency */
+    --colors-white-0: #ECEFF400;
+    --colors-white-10: #ECEFF41a;
+    --colors-white-30: #ECEFF44d;
+    --colors-white-50: #ECEFF480;
+    --colors-white-80: #ECEFF4cc;
+    --colors-white-100: #ECEFF4;
+    
+    /* Off-Black - Nord Polar Night with transparency */
+    --colors-off-black-0: #2E344000;
+    --colors-off-black-10: #2E34401a;
+    --colors-off-black-30: #2E34404d;
+    --colors-off-black-50: #2E344080;
+    --colors-off-black-80: #2E3440cc;
+    --colors-off-black-100: #2E3440;
+    
     /* Gradient */
-    --colors-gradient: #ffffff;
+    --colors-gradient: linear-gradient(135deg, #3B4252 0%, #434C5E 100%);
 
     /* Component Tokens */
     /* Input Component */
@@ -321,6 +361,7 @@
     --switch-disabled-fill-track-border: var(--border-disabled);
     --switch-disabled-fill-thumb-fill: var(--fill-default);
     --switch-disabled-fill-track-fill: var(--fill-fill-primary-disabled);
+    
     /* Pill Component */
     --pill-bg: var(--fill-default);
     --pill-surface: var(--fill-fill-primary);
@@ -357,9 +398,11 @@
     --tag-fill-socialmedia: var(--fill-socialmedia);
     --tag-fill-info: var(--surface-information);
     --tag-foreground-info: var(--text-information);
+    --tag-text-info: var(--text-information);
     --tag-surface-hover: var(--button-tertiery-fill-hover);
     --tag-fill-success: var(--surface-success);
     --tag-foreground-success: var(--text-success);
+    --tag-text-success: var(--text-success);
     --tag-fill-warning: var(--surface-warning);
     --tag-foreground-warning: var(--text-warning);
     --tag-fill-cuation: var(--surface-cuation);
@@ -407,259 +450,261 @@
     /* Code Component */
     --code-bg: var(--bg-dark-default);
     --code-foreground: var(--text-on-action);
-    /* Shadow Tokens */
-
-    /* Perfect Shadow */
+    
+    /* Shadow Tokens - Nord themed */
     --shadow-perfect:
-      0 8px 20px -2px #1d21291a,
-      0 32px 48px -12px #1d21291f,
-      0 96px 120px -12px #414a5c0f,
-      0 108px 72px -16px #414a5c14,
-      0 32px 64px -8px #7199bd1f,
-      0 8px 10px 0 #7199bd1f;
+      0 8px 20px -2px rgba(46, 52, 64, 0.25),
+      0 32px 48px -12px rgba(46, 52, 64, 0.30),
+      0 96px 120px -12px rgba(59, 66, 82, 0.15),
+      0 108px 72px -16px rgba(59, 66, 82, 0.20),
+      0 32px 64px -8px rgba(94, 129, 172, 0.15),
+      0 8px 10px 0 rgba(94, 129, 172, 0.15);
 
-    /* Button Shadow */
+    /* Button Shadow - Nord themed */
     --shadow-button:
-      inset 0 1px 0 0 #ffffff54,
-      0 3px 4px -1px #00000040,
-      0 0 0 1px #d4d4d440;
-
+      inset 0 1px 0 0 rgba(236, 239, 244, 0.15),
+      0 3px 4px -1px rgba(46, 52, 64, 0.40),
+      0 0 0 1px rgba(76, 86, 106, 0.40);
   }
 
+  /* Nord Dark Theme - Default */
   .root,
-  [data-theme="transparent"] {
-    --text-heading: var(--colors-primary-10);
-    --text-body: var(--colors-primary-default);
-    --text-label: var(--colors-primary-7);
-    --text-action: var(--colors-primary-default);
-    --text-action-hover: var(--colors-primary-10);
-    --text-disabled: var(--colors-primary-3);
-    --text-information: var(--colors-blue-default);
-    --text-success: var(--colors-green-default);
-    --text-warning: var(--colors-yellow-default);
-    --text-cuation: var(--colors-red-default);
-    --text-on-action: var(--colors-primary-1);
-    --text-on-disabled: var(--colors-off-white-50);
-    --text-document: var(--colors-amber-default);
-    --text-socialmedia: var(--colors-purple-default);
-    --text-browser: var(--colors-sky-default);
-    --text-developer: var(--colors-emerald-default);
-    --text-multimodal: var(--colors-fuchsia-default);
-    --text-on-hover: var(--colors-primary-2);
-    --surface-primary: var(--colors-off-white-80);
-    --surface-secondary: var(--colors-off-white-50);
-    --surface-success: var(--colors-green-50);
-    --surface-information: var(--colors-blue-50);
-    --surface-warning: var(--colors-yellow-50);
-    --surface-cuation: var(--colors-red-50);
-    --surface-action: var(--colors-primary-2);
-    --surface-action-hover: var(--colors-primary-1);
-    --surface-disabled: var(--colors-off-white-30);
-    --surface-tertiary: var(--colors-white-100);
-    --surface-tertiary-hover: var(--colors-white-50);
-    --surface-card: var(--colors-off-white-30);
-    --surface-card-hover: var(--colors-off-white-80);
-    --surface-card-focus: var(--colors-white-100);
+  [data-theme="transparent"],
+  [data-theme="dark"] {
+    /* Override white/off-white colors for dark mode */
+    --colors-white-0: #2E344000;
+    --colors-white-10: #3B42521a;
+    --colors-white-30: #3B42524d;
+    --colors-white-50: #3B425280;
+    --colors-white-80: #3B4252cc;
+    --colors-white-100: #3B4252;
+    
+    --colors-off-white-0: #2E344000;
+    --colors-off-white-10: #3B42521a;
+    --colors-off-white-30: #3B42524d;
+    --colors-off-white-50: #3B425280;
+    --colors-off-white-80: #3B4252cc;
+    --colors-off-white-100: #3B4252;
+    
+    /* Text Colors */
+    --text-heading: var(--nord6);
+    --text-body: var(--nord4);
+    --text-label: var(--nord4);
+    --text-action: var(--nord8);
+    --text-action-hover: var(--nord7);
+    --text-disabled: var(--nord3);
+    --text-information: var(--nord9);
+    --text-success: var(--nord14);
+    --text-warning: var(--nord13);
+    --text-cuation: var(--nord11);
+    --text-on-action: var(--nord0);
+    --text-on-disabled: var(--nord3);
+    --text-document: var(--nord12);
+    --text-socialmedia: var(--nord15);
+    --text-browser: var(--nord8);
+    --text-developer: var(--nord7);
+    --text-multimodal: var(--nord15);
+    --text-on-hover: var(--nord1);
+    
+    /* Surface Colors */
+    --surface-primary: var(--nord1);
+    --surface-secondary: var(--nord2);
+    --surface-success: rgba(163, 190, 140, 0.15);
+    --surface-information: rgba(129, 161, 193, 0.15);
+    --surface-warning: rgba(235, 203, 139, 0.15);
+    --surface-cuation: rgba(191, 97, 106, 0.15);
+    --surface-action: var(--nord2);
+    --surface-action-hover: var(--nord3);
+    --surface-disabled: var(--nord1);
+    --surface-tertiary: var(--nord0);
+    --surface-tertiary-hover: var(--nord1);
+    --surface-card: var(--nord1);
+    --surface-card-hover: var(--nord2);
+    --surface-card-focus: var(--nord3);
     --surface-card-default: 1.25rem;
-    --border-primary: var(--colors-primary-4);
-    --border-secondary: var(--colors-primary-3);
-    --border-tertiary: var(--colors-primary-1);
-    --border-information: var(--colors-blue-default);
-    --border-success: var(--colors-green-default);
-    --border-warning: var(--colors-yellow-default);
-    --border-cuation: var(--colors-red-default);
-    --border-focus: var(--colors-primary-5);
-    --border-action: var(--colors-primary-3);
-    --border-action-hover: var(--colors-primary-4);
-    --border-disabled: var(--colors-primary-2);
-    --border-developer: var(--colors-emerald-default);
-    --border-browser: var(--colors-sky-default);
-    --border-socialmedia: var(--colors-purple-default);
-    --border-multimodal: var(--colors-fuchsia-default);
-    --border-document: var(--colors-amber-default);
-    --border-transparent: var(--colors-white-0);
-    --icon-primary: var(--colors-primary-default);
-    --icon-action: var(--colors-primary-default);
-    --icon-disabled: var(--colors-primary-3);
-    --icon-information: var(--colors-blue-default);
-    --icon-success: var(--colors-green-default);
-    --icon-warning: var(--colors-yellow-default);
-    --icon-cuation: var(--colors-red-default);
-    --icon-action-hover: var(--colors-primary-10);
-    --icon-multimodal: var(--colors-fuchsia-default);
-    --icon-socialmedia: var(--colors-purple-default);
-    --icon-document: var(--colors-amber-default);
-    --icon-browser: var(--colors-sky-default);
-    --icon-developer: var(--colors-emerald-default);
-    --icon-on-disabled: var(--colors-off-white-50);
-    --icon-on-hover: var(--colors-primary-2);
-    --icon-on-action: var(--colors-primary-1);
-    --icon-secondary: var(--colors-primary-5);
-    --developer: var(--colors-emerald-default);
-    --browser: var(--colors-sky-default);
-    --document: var(--colors-amber-default);
-    --multimodal: var(--colors-fuchsia-default);
-    --socialmedia: var(--colors-purple-default);
-    --fill-default: var(--colors-white-100);
-    --fill-fill-primary: var(--colors-primary-default);
-    --fill-fill-primary-hover: var(--colors-primary-10);
-    --fill-fill-primary-active: var(--colors-primary-11);
-    --fill-fill-primary-disabled: var(--colors-primary-5);
-    --fill-fill-tertiary: var(--colors-primary-1);
-    --fill-fill-transparent: var(--colors-white-0);
-    --fill-fill-transparent-hover: var(--colors-primary-1);
-    --fill-fill-tertiary-hover: var(--colors-primary-2);
-    --fill-fill-tertiary-active: var(--colors-primary-3);
-    --fill-fill-tertiary-disabled: var(--colors-off-white-50);
-    --fill-fill-transparent-active: var(--colors-primary-2);
-    --fill-fill-transparent-disabled: var(--colors-white-0);
-    --fill-fill-secondary-disabled: var(--colors-primary-4);
-    --fill-fill-secondary-active: var(--colors-primary-7);
-    --fill-fill-secondary-hover: var(--colors-primary-6);
-    --fill-fill-secondary: var(--colors-primary-5);
-    --fill-fill-success: var(--colors-green-default);
-    --fill-fill-success-hover: var(--colors-green-700);
-    --fill-fill-success-active: var(--colors-green-800);
-    --fill-fill-success-disable: var(--colors-green-400);
-    --fill-fill-warning: var(--colors-yellow-default);
-    --fill-fill-cuation: var(--colors-red-default);
-    --fill-socialmedia: var(--colors-purple-100);
-    --fill-document: var(--colors-amber-100);
-    --fill-browser: var(--colors-sky-100);
-    --fill-multimodal: var(--colors-fuchsia-100);
-    --fill-developer: var(--colors-emerald-100);
-    --fill-scrollbar-dark: var(--colors-primary-3);
-    --fill-scrollbar-light: var(--colors-primary-1);
-    --fill-skeloten-default: var(--colors-primary-2);
-    --fill-fill-information: var(--colors-blue-default);
-    --bg-page: var(--colors-off-white-80);
-    --bg-primary: var(--colors-off-white-50);
-    --bg-secondary: var(--colors-off-white-30);
-    --bg-tertiary: var(--colors-off-white-10);
-    --bg-dark: var(--colors-off-black-80);
-    --bg-dark-primary: var(--colors-off-black-50);
-    --bg-dark-secondary: var(--colors-off-black-30);
-    --bg-dark-tertiary: var(--colors-off-black-10);
-    --bg-dark-default: var(--colors-off-black-100);
-    --bg-page-default: var(--colors-off-white-100);
+    
+    /* Border Colors */
+    --border-primary: var(--nord3);
+    --border-secondary: var(--nord2);
+    --border-tertiary: var(--nord1);
+    --border-information: var(--nord9);
+    --border-success: var(--nord14);
+    --border-warning: var(--nord13);
+    --border-cuation: var(--nord11);
+    --border-focus: var(--nord8);
+    --border-action: var(--nord3);
+    --border-action-hover: var(--nord8);
+    --border-disabled: var(--nord2);
+    --border-developer: var(--nord7);
+    --border-browser: var(--nord8);
+    --border-socialmedia: var(--nord15);
+    --border-multimodal: var(--nord15);
+    --border-document: var(--nord12);
+    --border-transparent: transparent;
+    
+    /* Icon Colors */
+    --icon-primary: var(--nord4);
+    --icon-action: var(--nord8);
+    --icon-disabled: var(--nord3);
+    --icon-information: var(--nord9);
+    --icon-success: var(--nord14);
+    --icon-warning: var(--nord13);
+    --icon-cuation: var(--nord11);
+    --icon-action-hover: var(--nord7);
+    --icon-multimodal: var(--nord15);
+    --icon-socialmedia: var(--nord15);
+    --icon-document: var(--nord12);
+    --icon-browser: var(--nord8);
+    --icon-developer: var(--nord7);
+    --icon-on-disabled: var(--nord3);
+    --icon-on-hover: var(--nord1);
+    --icon-on-action: var(--nord0);
+    --icon-secondary: var(--nord3);
+    
+    /* Category Colors */
+    --developer: var(--nord7);
+    --browser: var(--nord8);
+    --document: var(--nord12);
+    --multimodal: var(--nord15);
+    --socialmedia: var(--nord15);
+    
+    /* Fill Colors */
+    --fill-default: var(--nord0);
+    --fill-fill-primary: var(--nord8);
+    --fill-fill-primary-hover: var(--nord7);
+    --fill-fill-primary-active: var(--nord9);
+    --fill-fill-primary-disabled: var(--nord3);
+    --fill-fill-tertiary: var(--nord1);
+    --fill-fill-transparent: transparent;
+    --fill-fill-transparent-hover: var(--nord1);
+    --fill-fill-tertiary-hover: var(--nord2);
+    --fill-fill-tertiary-active: var(--nord3);
+    --fill-fill-tertiary-disabled: var(--nord1);
+    --fill-fill-transparent-active: var(--nord2);
+    --fill-fill-transparent-disabled: transparent;
+    --fill-fill-secondary-disabled: var(--nord2);
+    --fill-fill-secondary-active: var(--nord3);
+    --fill-fill-secondary-hover: var(--nord2);
+    --fill-fill-secondary: var(--nord1);
+    --fill-fill-success: var(--nord14);
+    --fill-fill-success-hover: #8faa76;
+    --fill-fill-success-active: #7a9a63;
+    --fill-fill-success-disable: rgba(163, 190, 140, 0.5);
+    --fill-fill-warning: var(--nord13);
+    --fill-fill-cuation: var(--nord11);
+    --fill-socialmedia: rgba(180, 142, 173, 0.2);
+    --fill-document: rgba(208, 135, 112, 0.2);
+    --fill-browser: rgba(136, 192, 208, 0.2);
+    --fill-multimodal: rgba(180, 142, 173, 0.2);
+    --fill-developer: rgba(143, 188, 187, 0.2);
+    --fill-scrollbar-dark: var(--nord3);
+    --fill-scrollbar-light: var(--nord2);
+    --fill-skeloten-default: var(--nord2);
+    --fill-fill-information: var(--nord9);
+    
+    /* Background Colors */
+    --bg-page: var(--nord0);
+    --bg-primary: var(--nord1);
+    --bg-secondary: var(--nord2);
+    --bg-tertiary: var(--nord3);
+    --bg-dark: var(--nord0);
+    --bg-dark-primary: var(--nord1);
+    --bg-dark-secondary: var(--nord2);
+    --bg-dark-tertiary: var(--nord3);
+    --bg-dark-default: var(--nord0);
+    --bg-page-default: var(--nord0);
   }
 
-  .root,
+  /* Light Theme Override (if needed) */
   [data-theme="light"] {
-    --text-heading: var(--colors-primary-10);
-    --text-body: var(--colors-primary-default);
-    --text-label: var(--colors-primary-7);
-    --text-action: var(--colors-primary-default);
-    --text-action-hover: var(--colors-primary-10);
-    --text-disabled: var(--colors-primary-3);
-    --text-information: var(--colors-blue-default);
-    --text-success: var(--colors-green-default);
-    --text-warning: var(--colors-yellow-default);
-    --text-cuation: var(--colors-red-default);
-    --text-on-action: var(--colors-primary-1);
-    --text-on-disabled: var(--colors-primary-1);
-    --text-document: var(--colors-amber-default);
-    --text-socialmedia: var(--colors-purple-default);
-    --text-browser: var(--colors-sky-default);
-    --text-developer: var(--colors-emerald-default);
-    --text-multimodal: var(--colors-fuchsia-default);
-    --text-on-hover: var(--colors-primary-2);
-    --surface-primary: var(--colors-off-white-100);
-    --surface-secondary: var(--colors-primary-2);
-    --surface-success: var(--colors-green-50);
-    --surface-information: var(--colors-blue-50);
-    --surface-warning: var(--colors-yellow-50);
-    --surface-cuation: var(--colors-red-50);
-    --surface-action: var(--colors-primary-2);
-    --surface-action-hover: var(--colors-primary-1);
-    --surface-disabled: var(--colors-off-white-30);
-    --surface-tertiary: var(--colors-white-100);
-    --surface-tertiary-hover: var(--colors-white-50);
-    --surface-card: var(--colors-off-white-30);
-    --surface-card-hover: var(--colors-off-white-80);
-    --surface-card-focus: var(--colors-white-100);
-    --surface-card-default: 1.25rem;
-    --border-primary: var(--colors-primary-4);
-    --border-secondary: var(--colors-primary-3);
-    --border-tertiary: var(--colors-primary-1);
-    --border-information: var(--colors-blue-default);
-    --border-success: var(--colors-green-default);
-    --border-warning: var(--colors-yellow-default);
-    --border-cuation: var(--colors-red-default);
-    --border-focus: var(--colors-primary-5);
-    --border-action: var(--colors-primary-3);
-    --border-action-hover: var(--colors-primary-4);
-    --border-disabled: var(--colors-primary-2);
-    --border-developer: var(--colors-emerald-default);
-    --border-browser: var(--colors-sky-default);
-    --border-socialmedia: var(--colors-purple-default);
-    --border-multimodal: var(--colors-fuchsia-default);
-    --border-document: var(--colors-amber-default);
-    --border-transparent: var(--colors-white-0);
-    --icon-primary: var(--colors-primary-default);
-    --icon-action: var(--colors-primary-default);
-    --icon-disabled: var(--colors-primary-3);
-    --icon-information: var(--colors-blue-default);
-    --icon-success: var(--colors-green-default);
-    --icon-warning: var(--colors-yellow-default);
-    --icon-cuation: var(--colors-red-default);
-    --icon-action-hover: var(--colors-primary-10);
-    --icon-multimodal: var(--colors-fuchsia-default);
-    --icon-socialmedia: var(--colors-purple-default);
-    --icon-document: var(--colors-amber-default);
-    --icon-browser: var(--colors-sky-default);
-    --icon-developer: var(--colors-emerald-default);
-    --icon-on-disabled: var(--colors-off-white-50);
-    --icon-on-hover: var(--colors-primary-2);
-    --icon-on-action: var(--colors-primary-1);
-    --icon-secondary: var(--colors-primary-5);
-    --developer: var(--colors-emerald-default);
-    --browser: var(--colors-sky-default);
-    --document: var(--colors-amber-default);
-    --multimodal: var(--colors-fuchsia-default);
-    --socialmedia: var(--colors-purple-default);
-    --fill-default: var(--colors-white-100);
-    --fill-fill-primary: var(--colors-primary-default);
-    --fill-fill-primary-hover: var(--colors-primary-10);
-    --fill-fill-primary-active: var(--colors-primary-11);
-    --fill-fill-primary-disabled: var(--colors-primary-5);
-    --fill-fill-tertiary: var(--colors-primary-1);
-    --fill-fill-transparent: var(--colors-white-0);
-    --fill-fill-transparent-hover: var(--colors-primary-1);
-    --fill-fill-tertiary-hover: var(--colors-primary-2);
-    --fill-fill-tertiary-active: var(--colors-primary-3);
-    --fill-fill-tertiary-disabled: var(--colors-primary-2);
-    --fill-fill-transparent-active: var(--colors-primary-2);
-    --fill-fill-transparent-disabled: var(--colors-white-0);
-    --fill-fill-secondary-disabled: var(--colors-primary-4);
-    --fill-fill-secondary-active: var(--colors-primary-7);
-    --fill-fill-secondary-hover: var(--colors-primary-6);
-    --fill-fill-secondary: var(--colors-primary-5);
-    --fill-fill-success: var(--colors-green-default);
-    --fill-fill-success-hover: var(--colors-green-700);
-    --fill-fill-success-active: var(--colors-green-800);
-    --fill-fill-success-disable: var(--colors-green-400);
-    --fill-fill-warning: var(--colors-yellow-default);
-    --fill-fill-cuation: var(--colors-red-default);
-    --fill-socialmedia: var(--colors-purple-100);
-    --fill-document: var(--colors-amber-100);
-    --fill-browser: var(--colors-sky-100);
-    --fill-multimodal: var(--colors-fuchsia-100);
-    --fill-developer: var(--colors-emerald-100);
-    --fill-scrollbar-dark: var(--colors-primary-3);
-    --fill-scrollbar-light: var(--colors-primary-1);
-    --fill-skeloten-default: var(--colors-primary-2);
-    --fill-fill-information: var(--colors-blue-default);
-    --bg-page: var(--colors-off-white-100);
-    --bg-primary: var(--colors-primary-1);
-    --bg-secondary: var(--colors-primary-2);
-    --bg-tertiary: var(--colors-primary-3);
-    --bg-dark: var(--colors-off-black-80);
-    --bg-dark-primary: var(--colors-off-black-50);
-    --bg-dark-secondary: var(--colors-off-black-30);
-    --bg-dark-tertiary: var(--colors-off-black-10);
-    --bg-dark-default: var(--colors-off-black-100);
-    --bg-page-default: var(--colors-off-white-100);
+    --text-heading: var(--nord0);
+    --text-body: var(--nord1);
+    --text-label: var(--nord2);
+    --text-action: var(--nord10);
+    --text-action-hover: var(--nord9);
+    --text-disabled: var(--nord4);
+    --text-information: var(--nord10);
+    --text-success: #5a8a4c;
+    --text-warning: #b5941f;
+    --text-cuation: #a54c54;
+    --text-on-action: var(--nord6);
+    --text-on-disabled: var(--nord4);
+    --text-document: #b06a4a;
+    --text-socialmedia: #9a6d93;
+    --text-browser: #5a9aa8;
+    --text-developer: #5a9a99;
+    --text-multimodal: #9a6d93;
+    --text-on-hover: var(--nord5);
+    
+    --surface-primary: var(--nord6);
+    --surface-secondary: var(--nord5);
+    --surface-success: rgba(163, 190, 140, 0.2);
+    --surface-information: rgba(129, 161, 193, 0.2);
+    --surface-warning: rgba(235, 203, 139, 0.2);
+    --surface-cuation: rgba(191, 97, 106, 0.2);
+    --surface-action: var(--nord5);
+    --surface-action-hover: var(--nord4);
+    --surface-disabled: var(--nord5);
+    --surface-tertiary: var(--nord6);
+    --surface-tertiary-hover: var(--nord5);
+    --surface-card: var(--nord6);
+    --surface-card-hover: var(--nord5);
+    --surface-card-focus: var(--nord4);
+    
+    --border-primary: var(--nord4);
+    --border-secondary: var(--nord5);
+    --border-tertiary: var(--nord6);
+    --border-information: var(--nord10);
+    --border-success: #5a8a4c;
+    --border-warning: #b5941f;
+    --border-cuation: #a54c54;
+    --border-focus: var(--nord10);
+    --border-action: var(--nord4);
+    --border-action-hover: var(--nord10);
+    --border-disabled: var(--nord5);
+    
+    --icon-primary: var(--nord1);
+    --icon-action: var(--nord10);
+    --icon-disabled: var(--nord4);
+    --icon-information: var(--nord10);
+    --icon-success: #5a8a4c;
+    --icon-warning: #b5941f;
+    --icon-cuation: #a54c54;
+    --icon-action-hover: var(--nord9);
+    --icon-on-disabled: var(--nord4);
+    --icon-on-hover: var(--nord5);
+    --icon-on-action: var(--nord6);
+    --icon-secondary: var(--nord3);
+    
+    --fill-default: var(--nord6);
+    --fill-fill-primary: var(--nord10);
+    --fill-fill-primary-hover: var(--nord9);
+    --fill-fill-primary-active: #4a6a8c;
+    --fill-fill-primary-disabled: var(--nord4);
+    --fill-fill-tertiary: var(--nord5);
+    --fill-fill-transparent: transparent;
+    --fill-fill-transparent-hover: var(--nord5);
+    --fill-fill-tertiary-hover: var(--nord4);
+    --fill-fill-tertiary-active: var(--nord3);
+    --fill-fill-tertiary-disabled: var(--nord5);
+    --fill-fill-secondary: var(--nord4);
+    --fill-fill-success: #5a8a4c;
+    --fill-fill-warning: #b5941f;
+    --fill-fill-cuation: #a54c54;
+    --fill-scrollbar-dark: var(--nord4);
+    --fill-scrollbar-light: var(--nord5);
+    --fill-skeloten-default: var(--nord5);
+    --fill-fill-information: var(--nord10);
+    
+    --bg-page: var(--nord6);
+    --bg-primary: var(--nord5);
+    --bg-secondary: var(--nord4);
+    --bg-tertiary: var(--nord3);
+    --bg-dark: var(--nord0);
+    --bg-dark-primary: var(--nord1);
+    --bg-dark-secondary: var(--nord2);
+    --bg-dark-tertiary: var(--nord3);
+    --bg-dark-default: var(--nord0);
+    --bg-page-default: var(--nord6);
   }
-
 }

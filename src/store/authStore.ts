@@ -66,7 +66,7 @@ const authStore = create<AuthState>()(
       username: null,
       email: null,
       user_id: null,
-      appearance: 'light',
+      appearance: 'dark',
       language: 'system',
       isFirstLaunch: false,
       modelType: 'cloud',

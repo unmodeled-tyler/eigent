@@ -31,18 +31,23 @@ const setLanguage = authStore.setLanguage;
 const appearance = authStore.appearance;
 	
 
-	const [themeList, setThemeList] = useState<any>([
-		{
-			img: light,
-			label: "setting.light",
-			value: "light",
-		},
-		{
-			img: transparent,
-			label: "setting.transparent",
-			value: "transparent",
-		},
-	]);
+const [themeList, setThemeList] = useState<any>([
+{
+img: dark,
+label: "setting.dark",
+value: "dark",
+},
+{
+img: light,
+label: "setting.light",
+value: "light",
+},
+{
+img: transparent,
+label: "setting.transparent",
+value: "transparent",
+},
+]);
 
 	const languageList = [
 		{
@@ -91,32 +96,42 @@ const appearance = authStore.appearance;
 		},
 	];
 
-	useEffect(() => {
-		const platform = window.electronAPI.getPlatform();
-		console.log(platform);
-		if (platform === "darwin") {
-			setThemeList([
-				{
-					img: light,
-					label: "setting.light",
-					value: "light",
-				},
-				{
-					img: transparent,
-					label: "setting.transparent",
-					value: "transparent",
-				},
-			]);
-		} else {
-			setThemeList([
-				{
-					img: light,
-					label: "setting.light",
-					value: "light",
-				},
-			]);
-		}
-	}, []);
+useEffect(() => {
+const platform = window.electronAPI.getPlatform();
+console.log(platform);
+if (platform === "darwin") {
+setThemeList([
+{
+img: dark,
+label: "setting.dark",
+value: "dark",
+},
+{
+img: light,
+label: "setting.light",
+value: "light",
+},
+{
+img: transparent,
+label: "setting.transparent",
+value: "transparent",
+},
+]);
+} else {
+setThemeList([
+{
+img: dark,
+label: "setting.dark",
+value: "dark",
+},
+{
+img: light,
+label: "setting.light",
+value: "light",
+},
+]);
+}
+}, []);
 
   return (
 <div className="space-y-8">

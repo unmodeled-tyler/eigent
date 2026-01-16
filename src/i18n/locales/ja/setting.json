@@ -12,8 +12,9 @@
 	"language": "言語",
 	"select-language": "言語を選択",
 	"system-default": "システムデフォルト",
-	"appearance": "外観",
-	"light": "ライト",
+"appearance": "外観",
+"dark": "ダーク",
+"light": "ライト",
 	"transparent": "透明",
 
 	"data-privacy": "データプライバシー",
@@ -164,4 +165,3 @@
   "reset-success": "リセットに成功しました！",
   "reset-failed": "リセットに失敗しました！"
 }
-

@@ -13,7 +13,8 @@
 	"select-language": "Seleccionar idioma",
 	"system-default": "Sistema predeterminado",
 	"appearance": "Apariencia",
-	"light": "Claro",
+	"dark": "Dark",
+"light": "Claro",
 	"transparent": "Transparente",
 
 	"data-privacy": "Privacidad de datos",

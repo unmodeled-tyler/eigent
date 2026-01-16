@@ -13,7 +13,8 @@
 	"select-language": "언어 선택",
 	"system-default": "시스템 기본값",
 	"appearance": "테마",
-	"light": "라이트",
+	"dark": "Dark",
+"light": "라이트",
 	"transparent": "투명",
 
 	"data-privacy": "데이터 개인정보 보호",
