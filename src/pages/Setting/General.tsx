@@ -136,9 +136,9 @@ value: "light",
   return (
 <div className="space-y-8">
 <div className="px-6 py-4 bg-surface-secondary rounded-2xl">
-				<div className="text-base font-bold leading-12 text-text-primary">
-					{t("setting.language")}
-				</div>
+<div className="text-body-lg font-bold text-text-heading">
+{t("setting.language")}
+</div>
 				<div className="mt-md">
 					<Select value={language} onValueChange={switchLanguage}>
 						<SelectTrigger>
@@ -160,9 +160,9 @@ value: "light",
 				</div>
 			</div>
 			<div className="px-6 py-4 bg-surface-secondary rounded-2xl">
-				<div className="text-base font-bold leading-12 text-text-primary">
-					{t("setting.appearance")}
-				</div>
+<div className="text-body-lg font-bold text-text-heading">
+{t("setting.appearance")}
+</div>
 				<div className="flex items-center gap-md mt-md">
 					{themeList.map((item: any) => (
 						<div
@@ -177,11 +177,11 @@ value: "light",
 								}`}
 								alt=""
 							/>
-							<div
-								className={`text-sm leading-13 text-text-primary group-hover:underline ${
-									item.value == appearance ? "underline" : ""
-								}`}
-							>
+<div
+className={`text-sm leading-13 text-text-heading group-hover:underline ${
+item.value == appearance ? "underline" : ""
+}`}
+>
 								{t(item.label)}
 							</div>
 						</div>
