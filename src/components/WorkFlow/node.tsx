@@ -1,5 +1,5 @@
 import { Handle, Position, useReactFlow, NodeResizer } from "@xyflow/react";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import {
 	FileText,
 	Globe,
@@ -60,43 +60,42 @@ export function Node({ id, data }: NodeProps) {
 	const [selectedTask, setSelectedTask] = useState<any>(null);
 	const [selectedState, setSelectedState] = useState<TaskStateType>("all");
 
-	const [filterTasks, setFilterTasks] = useState<any[]>([]);
-	useEffect(() => {
+	// Memoized task filtering
+	const filterTasks = useMemo(() => {
 		const tasks = data.agent?.tasks || [];
 
 		if (selectedState === "all") {
-			setFilterTasks(tasks);
-		} else {
-			const newFiltered = tasks.filter((task) => {
-				switch (selectedState) {
-					case "done":
-						return task.status === "completed" && !task.reAssignTo;
-					case "reassigned":
-						return !!task.reAssignTo;
-					case "ongoing":
-						return (
-							task.status !== "failed" &&
-							task.status !== "completed" &&
-							task.status !== "skipped" &&
-							task.status !== "waiting" &&
-							task.status !== "" &&
-							!task.reAssignTo
-						);
-					case "pending":
-						return (
-							(task.status === "skipped" ||
-								task.status === "waiting" ||
-								task.status === "") &&
-							!task.reAssignTo
-						);
-					case "failed":
-						return task.status === "failed";
-					default:
-						return false;
-				}
-			});
-			setFilterTasks(newFiltered);
+			return tasks;
 		}
+
+		return tasks.filter((task) => {
+			switch (selectedState) {
+				case "done":
+					return task.status === "completed" && !task.reAssignTo;
+				case "reassigned":
+					return !!task.reAssignTo;
+				case "ongoing":
+					return (
+						task.status !== "failed" &&
+						task.status !== "completed" &&
+						task.status !== "skipped" &&
+						task.status !== "waiting" &&
+						task.status !== "" &&
+						!task.reAssignTo
+					);
+				case "pending":
+					return (
+						(task.status === "skipped" ||
+							task.status === "waiting" ||
+							task.status === "") &&
+						!task.reAssignTo
+					);
+				case "failed":
+					return task.status === "failed";
+				default:
+					return false;
+			}
+		});
 	}, [selectedState, data.agent?.tasks]);
 
 	//Get Chatstore for the active project's task
@@ -492,53 +491,48 @@ export function Node({ id, data }: NodeProps) {
 								</div>
 							)}
 					</div>
-					{data.agent?.tasks && data.agent?.tasks.length > 0 && (
-						<div className="flex flex-col items-start justify-between gap-1 pt-sm border-[0px] border-t border-solid border-task-border-default pr-3">
-							{/* <div className="font-bold leading-tight text-xs">Subtasks</div> */}
-							<div className="flex-1 flex justify-end">
-								<TaskState
-									all={data.agent.tasks?.length || 0}
-									done={
-										data.agent?.tasks?.filter(
-											(task) => task.status === "completed" && !task.reAssignTo
-										).length || 0
-									}
-									reAssignTo={
-										data.agent.tasks?.filter((task) => task.reAssignTo)
-											?.length || 0
-									}
-									progress={
-										data.agent?.tasks?.filter(
-											(task) =>
-												task.status !== "failed" &&
-												task.status !== "completed" &&
-												task.status !== "skipped" &&
-												task.status !== "waiting" &&
-												task.status !== "" &&
-												!task.reAssignTo
-										).length || 0
-									}
-									skipped={
-										data.agent?.tasks?.filter(
-											(task) =>
-												(task.status === "skipped" ||
-													task.status === "waiting" ||
-													task.status === "") &&
-												!task.reAssignTo
-										).length || 0
-									}
-									failed={
-										data.agent?.tasks?.filter(
-											(task) => task.status === "failed"
-										).length || 0
-									}
-									selectedState={selectedState}
-									onStateChange={setSelectedState}
-									clickable={true}
-								/>
+					{data.agent?.tasks && data.agent?.tasks.length > 0 && (() => {
+						// Memoize task counts to avoid recalculating on every render
+						const tasks = data.agent.tasks;
+						const taskCounts = useMemo(() => ({
+							all: tasks.length,
+							done: tasks.filter(t => t.status === "completed" && !t.reAssignTo).length,
+							reAssignTo: tasks.filter(t => t.reAssignTo).length,
+							progress: tasks.filter(t =>
+								t.status !== "failed" &&
+								t.status !== "completed" &&
+								t.status !== "skipped" &&
+								t.status !== "waiting" &&
+								t.status !== "" &&
+								!t.reAssignTo
+							).length,
+							skipped: tasks.filter(t =>
+								(t.status === "skipped" ||
+								t.status === "waiting" ||
+								t.status === "") &&
+								!t.reAssignTo
+							).length,
+							failed: tasks.filter(t => t.status === "failed").length
+						}), [tasks]);
+
+						return (
+							<div className="flex flex-col items-start justify-between gap-1 pt-sm border-[0px] border-t border-solid border-task-border-default pr-3">
+								<div className="flex-1 flex justify-end">
+									<TaskState
+										all={taskCounts.all}
+										done={taskCounts.done}
+										reAssignTo={taskCounts.reAssignTo}
+										progress={taskCounts.progress}
+										skipped={taskCounts.skipped}
+										failed={taskCounts.failed}
+										selectedState={selectedState}
+										onStateChange={setSelectedState}
+										clickable={true}
+									/>
+								</div>
 							</div>
-						</div>
-					)}
+						);
+					})()}
 					<div
 						ref={wrapperRef}
 						onWheel={(e) => {
@@ -652,10 +646,10 @@ export function Node({ id, data }: NodeProps) {
 															className="text-icon-warning"
 														/>
 													)}
-													{(task.status === "" ||
-														task.status === "waiting") && (
-														<Circle size={16} className="text-slate-400" />
-													)}
+                              {(task.status === "" ||
+                                task.status === "waiting") && (
+                                <Circle size={16} className="text-icon-disabled" />
+                              )}
 												</>
 											)}
 										</div>

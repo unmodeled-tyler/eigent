@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import {
 	ChevronsLeft,
 	Search,
@@ -181,7 +181,6 @@ export default function Folder({ data }: { data?: Agent }) {
 		}
 		setSelectedFile(file);
 		setLoading(true);
-		console.log("file", JSON.parse(JSON.stringify(file)));
 
 		// For PDF files, use data URL instead of custom protocol
 		if (file.type === "pdf") {
@@ -222,7 +221,8 @@ export default function Folder({ data }: { data?: Agent }) {
 
 	const [isCollapsed, setIsCollapsed] = useState(false);
 
-	const buildFileTree = (files: FileInfo[]): FileTreeNode => {
+	// Memoize buildFileTree function
+	const buildFileTree = useCallback((files: FileInfo[]): FileTreeNode => {
 		const root: FileTreeNode = {
 			name: "root",
 			path: "",
@@ -265,7 +265,7 @@ export default function Folder({ data }: { data?: Agent }) {
 		}
 
 		return root;
-	};
+	}, []);
 
 	const [fileTree, setFileTree] = useState<FileTreeNode>({
 		name: "root",
@@ -431,11 +431,11 @@ export default function Folder({ data }: { data?: Agent }) {
 							} flex items-center justify-center`}
 							title={isCollapsed ? t("chat.open") : t("chat.close")}
 						>
-							<ChevronsLeft
-								className={`w-6 h-6 text-zinc-500 ${
-									isCollapsed ? "rotate-180" : ""
-								} transition-transform ease-in-out`}
-							/>
+                <ChevronsLeft
+                  className={`w-6 h-6 text-icon-primary ${
+                    isCollapsed ? "rotate-180" : ""
+                  } transition-transform ease-in-out`}
+                />
 						</Button>
 					</div>
 				</div>
@@ -483,9 +483,9 @@ export default function Folder({ data }: { data?: Agent }) {
 										key={file.path}
 										onClick={() => selectedFileChange(file, isShowSourceCode)}
 										className={`w-full flex items-center justify-center p-2 rounded-md hover:bg-fill-fill-primary-hover transition-colors ${
-											selectedFile?.name === file.name
-												? "bg-blue-50 text-blue-700"
-												: "text-zinc-600"
+                        selectedFile?.name === file.name
+                          ? "bg-surface-information text-text-information"
+                          : "text-text-body"
 										}`}
 										title={file.name}
 									>
@@ -525,18 +525,18 @@ export default function Folder({ data }: { data?: Agent }) {
 								<span className="block text-[15px] leading-[22px] font-medium text-primary overflow-hidden text-ellipsis whitespace-nowrap">
 									{selectedFile.name}
 								</span>
-								<Button size="icon" variant="ghost">
-									<Download className="w-4 h-4 text-zinc-500" />
-								</Button>
+                <Button size="icon" variant="ghost">
+                  <Download className="w-4 h-4 text-icon-primary" />
+                </Button>
 							</div>
-							<Button
-								variant="ghost"
-								size="icon"
-								className=" flex-shrink-0"
-								onClick={() => isShowSourceCodeChange()}
-							>
-								<CodeXml className="w-4 h-4 text-zinc-500" />
-							</Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className=" flex-shrink-0"
+                onClick={() => isShowSourceCodeChange()}
+              >
+                <CodeXml className="w-4 h-4 text-icon-primary" />
+              </Button>
 						</div>
 					</div>
 				)}
@@ -569,15 +569,15 @@ export default function Folder({ data }: { data?: Agent }) {
 									) : (
 										<FolderComponent selectedFile={selectedFile} />
 									)
-								) : selectedFile.type === "zip" ? (
-									<div className="flex items-center justify-center h-full text-zinc-500">
-										<div className="text-center">
-											<FileText className="w-12 h-12 mx-auto mb-4 text-zinc-300" />
-											<p className="text-sm">
-												{t("folder.zip-file-is-not-supported-yet")}
-											</p>
-										</div>
-									</div>
+                    ) : selectedFile.type === "zip" ? (
+                      <div className="flex items-center justify-center h-full text-text-disabled">
+                        <div className="text-center">
+                          <FileText className="w-12 h-12 mx-auto mb-4 text-icon-disabled" />
+                          <p className="text-sm">
+                            {t("folder.zip-file-is-not-supported-yet")}
+                          </p>
+                        </div>
+                      </div>
 								) : [
 										"png",
 										"jpg",
@@ -590,29 +590,29 @@ export default function Folder({ data }: { data?: Agent }) {
 									<div className="flex items-center justify-center h-full">
 										<ImageLoader selectedFile={selectedFile} />
 									</div>
-								) : (
-									<pre className="text-sm text-zinc-700 font-mono whitespace-pre-wrap break-words overflow-x-auto">
-										{selectedFile.content}
-									</pre>
-								)
-							) : (
-								<div className="flex items-center justify-center h-full">
-									<div className="text-center">
-										<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
-										<p className="text-sm text-zinc-500">{t("chat.loading")}</p>
-									</div>
-								</div>
-							)
-						) : (
-							<div className="flex items-center justify-center h-full text-zinc-500">
-								<div className="text-center">
-									<FileText className="w-12 h-12 mx-auto mb-4 text-zinc-300" />
-									<p className="text-sm">
-										{t("chat.select-a-file-to-view-its-contents")}
-									</p>
-								</div>
-							</div>
-						)}
+                    ) : (
+                      <pre className="text-sm text-text-body font-mono whitespace-pre-wrap break-words overflow-x-auto">
+                        {selectedFile.content}
+                      </pre>
+                    )
+                  ) : (
+                    <div className="flex items-center justify-center h-full">
+                      <div className="text-center">
+                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-border-information mx-auto mb-4"></div>
+                        <p className="text-sm text-text-disabled">{t("chat.loading")}</p>
+                      </div>
+                    </div>
+                  )
+                ) : (
+                  <div className="flex items-center justify-center h-full text-text-disabled">
+                    <div className="text-center">
+                      <FileText className="w-12 h-12 mx-auto mb-4 text-icon-disabled" />
+                      <p className="text-sm">
+                        {t("chat.select-a-file-to-view-its-contents")}
+                      </p>
+                    </div>
+                  </div>
+                )}
 					</div>
 				</div>
 			</div>

@@ -59,7 +59,7 @@ export default function Home() {
 		if (taskAssigning.length === 0) {
 			return;
 		}
-		
+
 		if (webviews.length === 0) {
 			const searchAgent = taskAssigning.find(agent => agent.type === 'search_agent');
 			if (searchAgent && searchAgent.activeWebviewIds && searchAgent.activeWebviewIds.length > 0) {
@@ -68,41 +68,61 @@ export default function Home() {
 				});
 			}
 		}
-		
+
 		if (webviews.length === 0) {
 			return;
 		}
 
-		// capture webview
+		// Debounced capture webview - reduced from every render to batched updates
+		let captureInProgress = false;
 		const captureWebview = async () => {
 			const activeTask = chatStore.tasks[chatStore.activeTaskId as string];
-			if (!activeTask || activeTask.status === "finished") {
+			if (!activeTask || activeTask.status === "finished" || captureInProgress) {
 				return;
 			}
-			webviews.map((webview) => {
+
+			captureInProgress = true;
+
+			// Batch all webview captures together
+			const capturePromises = webviews.map((webview) =>
 				window.ipcRenderer
 					.invoke("capture-webview", webview.id)
 					.then((base64: string) => {
 						const currentTask = chatStore.tasks[chatStore.activeTaskId as string];
-						if (!currentTask || currentTask.type) return;
-						let taskAssigning = [
-							...currentTask.taskAssigning,
-						];
+						if (!currentTask || currentTask.type) return null;
+
+						if (base64 && base64 !== "data:image/jpeg;base64,") {
+							return { webview, base64 };
+						}
+						return null;
+					})
+					.catch((error) => {
+						console.error("capture webview error:", error);
+						return null;
+					})
+			);
+
+			// Wait for all captures and update state once
+			const results = await Promise.all(capturePromises);
+			const validResults = results.filter(r => r !== null);
+
+			if (validResults.length > 0) {
+				const currentTask = chatStore.tasks[chatStore.activeTaskId as string];
+				if (currentTask) {
+					let taskAssigning = [...currentTask.taskAssigning];
+
+					validResults.forEach((result) => {
+						if (!result) return;
+						const { webview, base64 } = result;
 						const searchAgentIndex = taskAssigning.findIndex(
 							(agent) => agent.agent_id === webview.agent_id
 						);
 
-						if (
-							searchAgentIndex !== -1 &&
-							base64 !== "data:image/jpeg;base64,"
-						) {
+						if (searchAgentIndex !== -1) {
 							taskAssigning[searchAgentIndex].activeWebviewIds![
 								webview.index
 							].img = base64;
-							chatStore.setTaskAssigning(
-								chatStore.activeTaskId as string,
-								taskAssigning
-							);
+
 							const { processTaskId, url } =
 								taskAssigning[searchAgentIndex].activeWebviewIds![
 									webview.index
@@ -113,34 +133,25 @@ export default function Home() {
 								browser_url: url,
 								image_base64: base64,
 							});
-						
 						}
-						// let list: any = [];
-						// taskAssigning.forEach((item: any) => {
-						// 	item.activeWebviewIds.forEach((item2: any) => {
-						// 		if (item2.img && item2.url && item2.processTaskId) {
-						// 			list.push({
-						// 				api_task_id: chatStore.activeTaskId,
-						// 				camel_task_id: item2.processTaskId,
-						// 				browser_url: item2.url,
-						// 				image_base64: item2.img,
-						// 			});
-						// 		}
-						// 	});
-						// });
-						// chatStore.setSnapshots(chatStore.activeTaskId as string, list);
-					})
-					.catch((error) => {
-						console.error("capture webview error:", error);
 					});
-			});
+
+					chatStore.setTaskAssigning(
+						chatStore.activeTaskId as string,
+						taskAssigning
+					);
+				}
+			}
+
+			captureInProgress = false;
 		};
 
 		let intervalTimer: NodeJS.Timeout | null = null;
 
+		// Increased interval from 2s to 3s to reduce load
 		const initialTimer = setTimeout(() => {
 			captureWebview();
-			intervalTimer = setInterval(captureWebview, 2000);
+			intervalTimer = setInterval(captureWebview, 3000);
 		}, 2000);
 
 		// cleanup function
@@ -159,12 +170,25 @@ export default function Home() {
 
 		const webviewContainer = document.getElementById("webview-container");
 		if (webviewContainer) {
-			const resizeObserver = new ResizeObserver(() => {
-				getSize();
-			});
+			let resizeTimeout: NodeJS.Timeout | null = null;
+
+			// Debounced resize handler
+			const debouncedGetSize = () => {
+				if (resizeTimeout) {
+					clearTimeout(resizeTimeout);
+				}
+				resizeTimeout = setTimeout(() => {
+					getSize();
+				}, 150); // Debounce by 150ms
+			};
+
+			const resizeObserver = new ResizeObserver(debouncedGetSize);
 			resizeObserver.observe(webviewContainer);
 
 			return () => {
+				if (resizeTimeout) {
+					clearTimeout(resizeTimeout);
+				}
 				resizeObserver.disconnect();
 			};
 		}

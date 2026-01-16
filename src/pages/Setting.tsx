@@ -81,7 +81,7 @@ export default function Setting() {
 							listClassName="w-full h-full overflow-y-auto"
 							contentClassName="hidden"
 						/>
-						<div className="w-full mt-8 pt-4 pb-2 flex items-center justify-center border-[0px] border-t border-solid border-white-80% flex-shrink-0 flex-grow-0">
+						<div className="w-full mt-8 pt-4 pb-2 flex items-center justify-center border-[0px] border-t border-solid border-border-disabled flex-shrink-0 flex-grow-0">
 						<div className="flex items-center gap-1 leading-9">
 							<img src={vsersionLogo} alt="version-logo" className="h-6" />
 						</div>

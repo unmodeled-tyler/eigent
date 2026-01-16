@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback, memo, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import {
 	Select,
@@ -63,9 +63,9 @@ const categoryIconMap: Record<string, string> = {
 	camel: "Camel",
 };
 
-// load all svg files dynamically
+// Lazy load svg files (not eager) to reduce initial bundle size
 const svgIcons = import.meta.glob("@/assets/mcp/*.svg", {
-	eager: true,
+	eager: false,
 	query: "?url",
 	import: "default",
 });
@@ -74,6 +74,109 @@ type MCPMarketProps = {
 	onBack?: () => void;
 	keyword?: string;
 };
+
+// Memoized MCP Item Card Component
+interface MCPItemCardProps {
+	item: MCPItem;
+	installedIds: number[];
+	installing: { [id: number]: boolean };
+	installed: { [id: number]: boolean };
+	onCheckEnv: (id: number) => void;
+	onDelete: (item: MCPItem) => void;
+	t: any;
+}
+
+const MCPItemCard = memo(({ item, installedIds, installing, installed, onCheckEnv, onDelete, t }: MCPItemCardProps) => {
+	const isInstalled = installedIds.includes(item.id);
+	const [iconUrl, setIconUrl] = useState<string | undefined>(undefined);
+
+	// Lazy load the icon
+	useEffect(() => {
+		const catName = item.category?.name;
+		const iconKey = catName ? categoryIconMap[catName] : undefined;
+
+		if (iconKey) {
+			const iconPath = `/src/assets/mcp/${iconKey}.svg`;
+			const loader = svgIcons[iconPath];
+
+			if (loader) {
+				(loader as () => Promise<any>)().then((module) => {
+					setIconUrl(module.default || module);
+				}).catch(() => {
+					setIconUrl(undefined);
+				});
+			}
+		}
+	}, [item.category?.name]);
+
+	return (
+		<div
+			key={item.id}
+			className="p-4 bg-surface-secondary rounded-2xl flex items-center"
+		>
+			{/* Left: Icon */}
+			<div className="flex items-center mr-4">
+				{iconUrl ? (
+					<img src={iconUrl} alt={item.category?.name} className="w-9 h-11" />
+				) : (
+					<Store className="w-9 h-11 text-icon-primary" />
+				)}
+			</div>
+			<div className="flex-1 min-w-0 flex flex-col justify-center">
+				<div className="flex items-center gap-xs w-full pb-1">
+					<div className="flex items-center gap-xs flex-1">
+						<span className="text-base leading-9 font-bold text-text-primary truncate ">
+							{item.name}
+						</span>
+						<TooltipSimple content={item.description}>
+							<CircleAlert className="w-4 h-4 text-icon-secondary" />
+						</TooltipSimple>
+					</div>
+					<Button
+						variant={!isInstalled ? "primary" : "secondary"}
+						size="sm"
+						onClick={() => isInstalled ? onDelete(item) : onCheckEnv(item.id)}
+					>
+						{isInstalled
+							? t("setting.uninstall")
+							: installing[item.id]
+							? t("setting.installing")
+							: installed[item.id]
+							? t("setting.uninstall")
+							: t("setting.install")}
+					</Button>
+				</div>
+				{item.home_page &&
+					item.home_page.startsWith("https://github.com/") && (
+						<div className="flex items-center">
+							<img
+								src={githubIcon}
+								alt="github"
+								style={{
+									width: 14.7,
+									height: 14.7,
+									marginRight: 4,
+									display: "inline-block",
+									verticalAlign: "middle",
+								}}
+							/>
+							<span className="self-stretch items-center justify-center text-xs font-medium leading-3">
+								{(() => {
+									const parts = item.home_page.split("/");
+									return parts.length > 4 ? parts[4] : item.home_page;
+								})()}
+							</span>
+						</div>
+					)}
+				<div className="text-sm text-text-body mt-1 break-words whitespace-pre-line">
+					{item.description}
+				</div>
+			</div>
+		</div>
+	);
+});
+
+MCPItemCard.displayName = 'MCPItemCard';
 
 export default function MCPMarket({ onBack, keyword: externalKeyword }: MCPMarketProps) {
 	const { t } = useTranslation();
@@ -312,100 +415,34 @@ export default function MCPMarket({ onBack, keyword: externalKeyword }: MCPMarke
 				activeMcp={activeMcp}
 			></MCPEnvDialog>
 			<div className="flex flex-col gap-4 w-full pt-4">
-				{isLoading && items.length === 0 && (
-					<div className="text-center py-8 text-gray-400">{t("setting.loading")}</div>
-				)}
-				{error && <div className="text-center py-8 text-red-500">{error}</div>}
-				{!isLoading && !error && items.length === 0 && (
-					<div className="text-center py-8 text-gray-400">{t("setting.no-mcp-services")}</div>
-				)}
+        {isLoading && items.length === 0 && (
+          <div className="text-center py-8 text-text-disabled">{t("setting.loading")}</div>
+        )}
+        {error && <div className="text-center py-8 text-text-cuation">{error}</div>}
+        {!isLoading && !error && items.length === 0 && (
+          <div className="text-center py-8 text-text-disabled">{t("setting.no-mcp-services")}</div>
+        )}
 				{items.map((item) => (
-					<div
+					<MCPItemCard
 						key={item.id}
-						className="p-4 bg-surface-secondary rounded-2xl flex items-center"
-					>
-						{/* Left: Icon */}
-						<div className="flex items-center mr-4">
-							{(() => {
-								const catName = item.category?.name;
-								const iconKey = catName ? categoryIconMap[catName] : undefined;
-								const iconUrl = iconKey
-									? (svgIcons[`/src/assets/mcp/${iconKey}.svg`] as string)
-									: undefined;
-								return iconUrl ? (
-									<img src={iconUrl} alt={catName} className="w-9 h-11" />
-								) : (
-									<Store className="w-9 h-11 text-icon-primary" />
-								);
-							})()}
-						</div>
-						<div className="flex-1 min-w-0 flex flex-col justify-center">
-							<div className="flex items-center gap-xs w-full pb-1">
-								<div className="flex items-center gap-xs flex-1">
-									<span className="text-base leading-9 font-bold text-text-primary truncate ">
-										{item.name}
-									</span>
-									<TooltipSimple content={item.description}>
-										<CircleAlert className="w-4 h-4 text-icon-secondary" />
-									</TooltipSimple>
-								</div>
-								<Button
-									variant={
-										!installedIds.includes(item.id) ? "primary" : "secondary"
-									}
-									size="sm"
-									onClick={() =>
-										installedIds.includes(item.id)
-											? handleDelete(item)
-											: checkEnv(item.id)
-									}
-								>
-									{installedIds.includes(item.id)
-										? t("setting.uninstall")
-										: installing[item.id]
-										? t("setting.installing")
-										: installed[item.id]
-										? t("setting.uninstall")
-										: t("setting.install")}
-								</Button>
-							</div>
-							{item.home_page &&
-								item.home_page.startsWith("https://github.com/") && (
-									<div className="flex items-center">
-										<img
-											src={githubIcon}
-											alt="github"
-											style={{
-												width: 14.7,
-												height: 14.7,
-												marginRight: 4,
-												display: "inline-block",
-												verticalAlign: "middle",
-											}}
-										/>
-										<span className="self-stretch items-center justify-center text-xs font-medium leading-3">
-											{(() => {
-												const parts = item.home_page.split("/");
-												return parts.length > 4 ? parts[4] : item.home_page;
-											})()}
-										</span>
-									</div>
-								)}
-							<div className="text-sm text-gray-500 mt-1 break-words whitespace-pre-line">
-								{item.description}
-							</div>
-						</div>
-					</div>
+						item={item}
+						installedIds={installedIds}
+						installing={installing}
+						installed={installed}
+						onCheckEnv={checkEnv}
+						onDelete={handleDelete}
+						t={t}
+					/>
 				))}
 				<div ref={loader} />
-				{isLoading && items.length > 0 && (
-					<div className="text-center py-4 text-gray-400">{t("setting.loading-more")}</div>
-				)}
-				{!hasMore && items.length > 0 && (
-					<div className="text-center py-4 text-gray-400">
-						{t("setting.no-more-mcp-servers")}
-					</div>
-				)}
+        {isLoading && items.length > 0 && (
+          <div className="text-center py-4 text-text-disabled">{t("setting.loading-more")}</div>
+        )}
+        {!hasMore && items.length > 0 && (
+          <div className="text-center py-4 text-text-disabled">
+            {t("setting.no-more-mcp-servers")}
+          </div>
+        )}
 			</div>
 		</div>
 	);

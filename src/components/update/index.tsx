@@ -73,10 +73,10 @@ const Update = () => {
   useEffect(() => {
     if (isDownloading) {
       toast.custom((toastId) => (
-        <div className="bg-white-100% shadow-lg p-4 rounded-lg w-[300px]">
-          <div className="text-sm font-medium mb-2">{t("update.downloading-update")}</div>
+        <div className="bg-surface-secondary shadow-lg p-4 rounded-lg w-[300px]">
+          <div className="text-sm font-medium mb-2 text-text-heading">{t("update.downloading-update")}</div>
           <Progress value={downloadProgress} className="mb-2" />
-          <div className="text-xs text-gray-500">
+          <div className="text-xs text-text-body">
             {Math.round(downloadProgress)}% {t("update.complete")}
           </div>
         </div>

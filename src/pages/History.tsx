@@ -4,20 +4,15 @@ import { Plus } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
-import { useAuthStore } from "@/store/authStore";
 import { MenuToggleGroup, MenuToggleItem } from "@/components/MenuButton/MenuButton";
 import Project from "@/pages/Dashboard/Project";
-import Trigger from "@/pages/Dashboard/Trigger";
 import AlertDialog from "@/components/ui/alertDialog";
 import { Settings } from "@/components/animate-ui/icons/settings";
-import { Pin } from "@/components/animate-ui/icons/pin";
 import { Compass } from "@/components/animate-ui/icons/compass";
 import Setting from "@/pages/Setting";
-import { cn } from "@/lib/utils";
 import { Hammer } from "@/components/animate-ui/icons/hammer";
 import MCP from "./Setting/MCP";
 import Browser from "./Dashboard/Browser";
-import WordCarousel from "@/components/ui/WordCarousel";
 import { Sparkle } from "@/components/animate-ui/icons/sparkle";
 
 
@@ -35,8 +30,6 @@ export default function Home() {
 
 	const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-	const { username, email } = useAuthStore();
-	const displayName = username ?? email ?? "";
 
 	// Sync activeTab with URL changes
 	useEffect(() => {
@@ -46,24 +39,6 @@ export default function Home() {
 		}
 	}, [searchParams]);
 
-	const formatWelcomeName = (raw: string): string => {
-		if (!raw) return "";
-		if (/^[^@]+@gmail\.com$/i.test(raw)) {
-			const local = raw.split("@")[0];
-			const pretty = local.replace(/[._-]+/g, " ").trim();
-			return pretty
-				.split(/\s+/)
-				.map(part => part.charAt(0).toUpperCase() + part.slice(1))
-				.join(" ");
-		}
-		return raw;
-	};
-
-	const welcomeName = formatWelcomeName(displayName);
-
-	const handleAnimationComplete = () => {
-		console.log('All letters have animated!');
-	};
 
 	const confirmDelete = () => {
 		setDeleteModalOpen(false);
@@ -97,26 +72,10 @@ export default function Home() {
 			confirmText={t("layout.delete")}
 			cancelText={t("layout.cancel")}
 		/>
-			{/* welcome text */}
-			<div className="flex flex-row w-full pt-16 px-20 bg-gradient-to-b from-transparent to-[#F9F8F6]">
-					<WordCarousel
-						words={[`${t("layout.welcome")}, ${welcomeName} !`]}
-						className="text-heading-xl font-bold tracking-tight"
-						rotateIntervalMs={100}
-						sweepDurationMs={2000}
-						sweepOnce
-						gradient={`linear-gradient(in oklch 90deg,
-							#f9f8f6 0%, var(--colors-blue-300) 30%,
-							var(--colors-emerald-default) 50%, 
-							var(--colors-green-500) 70%,
-							var(--colors-orange-300) 100%)`}
-						ariaLabel="rotating headline"
-					/>
-			</div>
-			{/* Navbar */}
-		<div
-			className={`sticky top-0 z-20 flex flex-col justify-between items-center bg-[#F9F8F6] px-20 pt-10 pb-4 border-border-disabled border-x-0 border-t-0 border-solid`}
-		>
+{/* Navbar */}
+<div
+className={`sticky top-0 z-20 flex flex-col justify-between items-center bg-surface-primary px-20 pt-10 pb-4 border-border-disabled border-x-0 border-t-0 border-solid`}
+>
 				<div className="flex flex-row justify-between items-center w-full mx-auto">
 				<div className="flex items-center gap-2">
 			 	 <MenuToggleGroup type="single" value={activeTab} orientation="horizontal" onValueChange={(v) => v && setActiveTab(v as typeof activeTab)}>
