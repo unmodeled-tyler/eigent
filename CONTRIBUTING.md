@@ -1,6 +1,6 @@
-🐫 **Welcome to Eigent!** 🐫
+🐫 **Welcome to Node!** 🐫
 
-Thank you for your interest in contributing to the Eigent project! 🎉 We're excited to have your support. As an open-source product build on CAMEL in a rapidly evolving and open-ended field, we wholeheartedly welcome contributions of all kinds. Whether you want to introduce new features, enhance the infrastructure, improve documentation, asking issues, or fix bugs, we appreciate your enthusiasm and efforts. 🙌  You are welcome to join our [discord](https://discord.camel-ai.org/) for more efficient communication. 💬
+Thank you for your interest in contributing to the Node project! 🎉 We're excited to have your support. As an open-source product build on CAMEL in a rapidly evolving and open-ended field, we wholeheartedly welcome contributions of all kinds. Whether you want to introduce new features, enhance the infrastructure, improve documentation, asking issues, or fix bugs, we appreciate your enthusiasm and efforts. 🙌  You are welcome to join our [discord](https://discord.camel-ai.org/) for more efficient communication. 💬
 
 ## Join Our Community 🌍
 
@@ -42,7 +42,7 @@ Ensuring excellent documentation and thorough testing is absolutely crucial. Her
 We're a small team focused on building great things. If you have something in mind that you'd like to add or modify, opening a pull request is the ideal way to catch our attention. 🚀
 
 ### Contributing to Code Reviews 🔍
-This part outlines the guidelines and best practices for conducting code reviews in Eigent. The aim is to ensure that all contributions are of high quality, align with the project's goals, and are consistent with our coding standards.
+This part outlines the guidelines and best practices for conducting code reviews in Node. The aim is to ensure that all contributions are of high quality, align with the project's goals, and are consistent with our coding standards.
 
 #### Purpose of Code Reviews
 - Maintain Code Quality: Ensure that the codebase remains clean, readable, and maintainable.
@@ -87,11 +87,11 @@ This part outlines the guidelines and best practices for conducting code reviews
 - Ignoring Feedback: Address all feedback provided by reviewers, even if you don’t agree with it—discuss it instead of ignoring it.
 - Rushed Reviews: Avoid rushing through reviews. Taking the time to thoroughly review code is critical to maintaining quality.
 
-Code reviews are an essential part of maintaining the quality and integrity of our open source project. By following these guidelines, we can ensure that Eigent remains robust, secure, and easy to maintain, while also fostering a collaborative and welcoming community.
+Code reviews are an essential part of maintaining the quality and integrity of our open source project. By following these guidelines, we can ensure that Node remains robust, secure, and easy to maintain, while also fostering a collaborative and welcoming community.
 
 ### Guideline for Writing Docstrings
 
-This guideline will help you write clear, concise, and structured docstrings for contributing to `Eigent`.
+This guideline will help you write clear, concise, and structured docstrings for contributing to `Node`.
 
 #### 1. Use the Triple-Quoted String with `r"""` (Raw String)
 Begin the docstring with `r"""` to indicate a raw docstring. This prevents any issues with special characters and ensures consistent formatting.
@@ -141,10 +141,10 @@ Examples:
 By adhering to this principle, we ensure that CAMEL remains accessible and unambiguous for both developers and AI agents.
 
 ### Board Item Create Workflow 🛠️
-At Eigent, we manage our project through a structured workflow that ensures efficiency and clarity in our development process. Our workflow includes stages for issue creation and pull requests (PRs), sprint planning, and reviews.
+At Node, we manage our project through a structured workflow that ensures efficiency and clarity in our development process. Our workflow includes stages for issue creation and pull requests (PRs), sprint planning, and reviews.
 
 #### Issue Item Stage:
-Our [issues](https://github.com/eigent-ai/Eigent-desktop/issues) page on GitHub is regularly updated with bugs, improvements, and feature requests. We have a handy set of labels to help you sort through and find issues that interest you. Feel free to use these labels to keep things organized.
+Our [issues](https://github.com/node-ai/Node-desktop/issues) page on GitHub is regularly updated with bugs, improvements, and feature requests. We have a handy set of labels to help you sort through and find issues that interest you. Feel free to use these labels to keep things organized.
 
 When you start working on an issue, please assign it to yourself so that others know it's being taken care of.
 
@@ -153,14 +153,14 @@ When creating a new issue, it's best to keep it focused on a specific bug, impro
 We do our best to keep these issues up to date, but considering the fast-paced nature of this field, some may become outdated. If you come across any such issues, please give us a heads-up so we can address them promptly. 👀
 
 Here’s how to engage with our issues effectively:
-- Go to [GitHub Issues](https://github.com/eigent-ai/Eigent-desktop/issues), create a new issue, choose the category, and fill in the required information.
+- Go to [GitHub Issues](https://github.com/node-ai/Node-desktop/issues), create a new issue, choose the category, and fill in the required information.
 - Ensure the issue has a proper title and update the Assignees, Labels, Projects (select Backlog status), Development, and Milestones.
 - Discuss the issue during team meetings, then move it to the Analysis Done column.
 - At the beginning of each sprint, share the analyzed issue and move it to the Sprint Planned column if you are going to work on this issue in the sprint.
 
 #### Pull Request Item Stage:
 
-- Go to [GitHub Pulls](https://github.com/eigent-ai/Eigent-desktop/pulls), create a new PR, choose the branch, and fill in the information, linking the related issue.
+- Go to [GitHub Pulls](https://github.com/node-ai/Node-desktop/pulls), create a new PR, choose the branch, and fill in the information, linking the related issue.
 - Ensure the PR has a proper title and update the Reviewers (convert to draft), Assignees, Labels, Projects (select Developing status), Development, and Milestones.
 - If the PR is related to a roadmap, link the roadmap to the PR.
 - Move the PR item through the stages: Developing, Stuck, Reviewing (click ready for review), Merged. The linked issue will close automatically when the PR is merged.
@@ -181,8 +181,8 @@ Our aim is to make the developer setup as straightforward as possible. If you en
 ## Quick Start 🚀
 
 ```bash
-git clone https://github.com/eigent-ai/Eigent-desktop.git
-cd Eigent-desktop
+git clone https://github.com/node-ai/Node-desktop.git
+cd Node-desktop
 npm install
 npm run dev
 ```

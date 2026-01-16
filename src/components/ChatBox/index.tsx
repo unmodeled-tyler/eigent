@@ -797,7 +797,7 @@ export default function ChatBox(): JSX.Element {
 					<div className=" w-full flex flex-col relative z-10">
 						<div className="flex flex-col items-center gap-1 h-[210px] justify-end">
 							<div className="text-body-lg text-text-heading text-center font-bold">
-								{t("layout.welcome-to-eigent")}
+								{t("layout.welcome-to-node")}
 							</div>
 							<div className="text-body-lg leading-7 text-text-label text-center mb-5">
 								{t("layout.how-can-i-help-you")}
@@ -861,9 +861,9 @@ export default function ChatBox(): JSX.Element {
 											className="text-icon-information"
 										/>
 										<span className=" flex-1 text-text-information text-xs font-medium leading-[20px]">
-											{t("layout.by-messaging-eigent")}{" "}
+											{t("layout.by-messaging-node")}{" "}
 											<a
-												href="https://www.eigent.ai/terms-of-use"
+												href="https://www.node.ai/terms-of-use"
 												target="_blank"
 												className="text-text-information underline"
 												onClick={(e) => e.stopPropagation()}
@@ -872,7 +872,7 @@ export default function ChatBox(): JSX.Element {
 											</a>{" "}
 											{t("layout.and")}{" "}
 											<a
-												href="https://www.eigent.ai/privacy-policy"
+												href="https://www.node.ai/privacy-policy"
 												target="_blank"
 												className="text-text-information underline"
 												onClick={(e) => e.stopPropagation()}

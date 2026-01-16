@@ -1,13 +1,13 @@
 {
-  "name": "eigent",
+  "name": "node",
   "version": "0.0.78",
   "main": "dist-electron/main/index.js",
-  "description": "Eigent",
-  "author": "Eigent.AI",
+  "description": "Node",
+  "author": "Node",
   "license": "MIT",
   "private": true,
   "bin": {
-    "eigent": "./bin/eigent"
+    "node": "./bin/node"
   },
   "debug": {
     "env": {

@@ -203,7 +203,7 @@ export const useInstallationStore = create<InstallationStoreState>()(
           }
           
           if (response.savedPath) {
-            window.location.href = 'https://github.com/eigent-ai/eigent/issues/new/choose';
+            window.location.href = 'https://github.com/node/node/issues/new/choose';
             alert('Log saved: ' + response.savedPath);
           }
         } catch (e: any) {

@@ -1,15 +1,15 @@
 <div align="center"><a name="readme-top"></a>
 
-[![][image-head]][eigent-site]
+[![][image-head]][node-site]
 
-[![][image-seperator]][eigent-site]
+[![][image-seperator]][node-site]
 
-### Eigent：全球首个多智能体工作流，释放卓越生产力
+### Node：全球首个多智能体工作流，释放卓越生产力
 
 <!-- SHIELD GROUP -->
 
-[![][download-shield]][eigent-download]
-[![][github-star]][eigent-github]
+[![][download-shield]][node-download]
+[![][github-star]][node-github]
 [![][social-x-shield]][social-x-link]
 [![][discord-image]][discord-url]<br>
 [![Reddit][reddit-image]][reddit-url]
@@ -23,12 +23,12 @@
 <hr/>
 <div align="center">
 
-[English](./README.md) · **简体中文** · [官方网站][eigent-site] · [文档][docs-site] · [反馈][github-issue-link]
+[English](./README.md) · **简体中文** · [官方网站][node-site] · [文档][docs-site] · [反馈][github-issue-link]
 
 </div>
 <br/>
 
-**Eigent** 是全球首个 **多智能体工作流** 桌面应用程序，帮助您构建、管理和部署定制化的 AI 工作团队，将最复杂的工作流程转化为自动化任务。
+**Node** 是全球首个 **多智能体工作流** 桌面应用程序，帮助您构建、管理和部署定制化的 AI 工作团队，将最复杂的工作流程转化为自动化任务。
 
 基于 [CAMEL-AI][camel-site] 广受赞誉的开源项目，我们的系统引入了 **多智能体工作流**，通过并行执行、定制化和隐私保护 **提升生产力**。
 
@@ -82,11 +82,11 @@
 
 ## **🚀 快速开始**
 
-有三种方式开始使用 Eigent：
+有三种方式开始使用 Node：
 
 ### ☁️ 云版本
 
-最快体验 Eigent 多智能体 AI 能力的方式是通过我们的云平台，适合希望无需复杂设置即可立即使用的团队和个人。我们将托管模型、API 和云存储，确保 Eigent 流畅运行。
+最快体验 Node 多智能体 AI 能力的方式是通过我们的云平台，适合希望无需复杂设置即可立即使用的团队和个人。我们将托管模型、API 和云存储，确保 Node 流畅运行。
 
 - **即时访问** - 几分钟内开始构建多智能体工作流。  
 - **托管基础设施** - 我们负责扩展、更新和维护。  
@@ -94,10 +94,10 @@
 
 <br/>
 
-[![image-public-beta]][eigent-download]
+[![image-public-beta]][node-download]
 
 <div align="right">
-<a href="https://www.eigent.ai">Get started at Eigent.ai →</a>
+<a href="https://www.node.ai">Get started at Node.ai →</a>
 </div>
 
 ### 🏠 自托管（社区版）
@@ -115,8 +115,8 @@
 #### 2. 快速开始
 
 ```bash
-git clone https://github.com/eigent-ai/eigent.git
-cd eigent
+git clone https://github.com/node-ai/node.git
+cd node
 npm install
 npm run dev
 ```
@@ -133,48 +133,48 @@ npm run dev
 - **可扩展的企业部署**  
 - **协商的 SLA** 和实施服务  
 
-📧 更多详情，请联系 [info@eigent.ai](mailto:info@eigent.ai)。
+📧 更多详情，请联系 [info@node.ai](mailto:info@node.ai)。
 
 ## **✨ 核心功能**
-通过 Eigent 的强大功能释放卓越生产力的全部潜力——专为无缝集成、智能任务执行和无边界自动化而设计。
+通过 Node 的强大功能释放卓越生产力的全部潜力——专为无缝集成、智能任务执行和无边界自动化而设计。
 
 ### 🏭 工作流  
-部署一支专业 AI 智能体团队，协作解决复杂任务。Eigent 动态分解任务并激活多个智能体 **并行工作**。
+部署一支专业 AI 智能体团队，协作解决复杂任务。Node 动态分解任务并激活多个智能体 **并行工作**。
 
-Eigent 预定义了以下智能体工作者：
+Node 预定义了以下智能体工作者：
 
 - **开发智能体**：编写和执行代码，运行终端命令。  
 - **搜索智能体**：搜索网络并提取内容。  
 - **文档智能体**：创建和管理文档。  
 - **多模态智能体**：处理图像和音频。  
 
-![Workforce](https://eigent-ai.github.io/.github/assets/gif/feature_dynamic_workforce.gif)
+![Workforce](https://node-ai.github.io/.github/assets/gif/feature_dynamic_workforce.gif)
 
 <br/>
 
 ### 🧠 全面模型支持  
-使用您偏好的模型本地部署 Eigent。  
+使用您偏好的模型本地部署 Node。  
 
-![Model](https://eigent-ai.github.io/.github/assets/gif/feature_local_model.gif)
+![Model](https://node-ai.github.io/.github/assets/gif/feature_local_model.gif)
 
 <br/>
 
 ### 🔌 MCP 工具集成  
-Eigent 内置大量 **模型上下文协议（MCP）** 工具（用于网页浏览、代码执行、Notion、Google 套件、Slack 等），并允许您 **安装自己的工具**。为智能体配备适合您场景的工具——甚至集成内部 API 或自定义功能——以增强其能力。
+Node 内置大量 **模型上下文协议（MCP）** 工具（用于网页浏览、代码执行、Notion、Google 套件、Slack 等），并允许您 **安装自己的工具**。为智能体配备适合您场景的工具——甚至集成内部 API 或自定义功能——以增强其能力。
 
-![MCP](https://eigent-ai.github.io/.github/assets/gif/feature_add_mcps.gif)
+![MCP](https://node-ai.github.io/.github/assets/gif/feature_add_mcps.gif)
 
 <br/>
 
 ### ✋ 人工介入  
-如果任务卡住或遇到不确定性，Eigent 会自动请求人工输入。  
+如果任务卡住或遇到不确定性，Node 会自动请求人工输入。  
 
-![Human-in-the-loop](https://eigent-ai.github.io/.github/assets/gif/feature_human_in_the_loop.gif)
+![Human-in-the-loop](https://node-ai.github.io/.github/assets/gif/feature_human_in_the_loop.gif)
 
 <br/>
 
 ### 👐 100% 开源  
-Eigent 完全开源。您可以下载、检查和修改代码，确保透明度并促进多智能体创新的社区驱动生态系统。
+Node 完全开源。您可以下载、检查和修改代码，确保透明度并促进多智能体创新的社区驱动生态系统。
 
 ![Opensource][image-opensource]
 
@@ -182,7 +182,7 @@ Eigent 完全开源。您可以下载、检查和修改代码，确保透明度�
 
 ## 🧩 使用案例
 
-### 1. 棕榈泉网球旅行行程与 Slack 摘要 [回放 ▶️](https://www.eigent.ai/download?share_token=IjE3NTM0MzUxNTEzMzctNzExMyI.aIeysw.MUeG6ZcBxI1GqvPDvn4dcv-CDWw__1753435151337-7113)
+### 1. 棕榈泉网球旅行行程与 Slack 摘要 [回放 ▶️](https://www.node.ai/download?share_token=IjE3NTM0MzUxNTEzMzctNzExMyI.aIeysw.MUeG6ZcBxI1GqvPDvn4dcv-CDWw__1753435151337-7113)
 
 <details>
 <summary><strong>提示：</strong> <kbd>我们是两个网球爱好者，想去观看 2026 年棕榈泉的网球比赛... <kbd></summary>
@@ -192,7 +192,7 @@ Eigent 完全开源。您可以下载、检查和修改代码，确保透明度�
 
 <br>
 
-### 2. 从 CSV 银行数据生成 Q2 报告 [回放 ▶️](https://www.eigent.ai/download?share_token=IjE3NTM1MjY4OTE4MDgtODczOSI.aIjJmQ.WTdoX9mATwrcBr_w53BmGEHPo8U__1753526891808-8739)
+### 2. 从 CSV 银行数据生成 Q2 报告 [回放 ▶️](https://www.node.ai/download?share_token=IjE3NTM1MjY4OTE4MDgtODczOSI.aIjJmQ.WTdoX9mATwrcBr_w53BmGEHPo8U__1753526891808-8739)
 
 <details>
 <summary><strong>提示：</strong> <kbd>请根据我桌面上的银行转账记录文件 bank_transacation.csv... <kbd></summary>
@@ -202,17 +202,17 @@ Eigent 完全开源。您可以下载、检查和修改代码，确保透明度�
 
 <br>
 
-### 3. 英国医疗市场调研报告自动化 [回放 ▶️](https://www.eigent.ai/download?share_token=IjE3NTMzOTM1NTg3OTctODcwNyI.aIey-Q.Jh9QXzYrRYarY0kz_qsgoj3ewX0__1753393558797-8707)
+### 3. 英国医疗市场调研报告自动化 [回放 ▶️](https://www.node.ai/download?share_token=IjE3NTMzOTM1NTg3OTctODcwNyI.aIey-Q.Jh9QXzYrRYarY0kz_qsgoj3ewX0__1753393558797-8707)
 
 <details>
 <summary><strong>提示：</strong> <kbd>分析英国医疗保健行业以支持我下一家公司的规划... <kbd></summary>
 <br>
-分析英国医疗保健行业以支持我下一家公司的规划。提供全面的市场概览，包括当前趋势、增长预测和相关法规。识别市场中5-10个主要机会、缺口或服务不足的细分领域。将所有发现整理成结构清晰、专业的HTML报告。完成后，向Slack的#eigentr-product-test频道发送消息，以便与团队成员对齐报告内容。。
+分析英国医疗保健行业以支持我下一家公司的规划。提供全面的市场概览，包括当前趋势、增长预测和相关法规。识别市场中5-10个主要机会、缺口或服务不足的细分领域。将所有发现整理成结构清晰、专业的HTML报告。完成后，向Slack的#noder-product-test频道发送消息，以便与团队成员对齐报告内容。。
 </details>
 
 <br>
 
-### 4. 德国电动滑板市场可行性 [回放 ▶️](https://www.eigent.ai/download?share_token=IjE3NTM2NTI4MjY3ODctNjk2Ig.aIjGiA.t-qIXxk_BZ4ENqa-yVIm0wMVyXU__1753652826787-696)
+### 4. 德国电动滑板市场可行性 [回放 ▶️](https://www.node.ai/download?share_token=IjE3NTM2NTI4MjY3ODctNjk2Ig.aIjGiA.t-qIXxk_BZ4ENqa-yVIm0wMVyXU__1753652826787-696)
 
 <details>
 <summary><strong>提示：</strong> <kbd>我们是一家生产高端电动滑板的公司... <kbd></summary>
@@ -222,7 +222,7 @@ Eigent 完全开源。您可以下载、检查和修改代码，确保透明度�
 
 <br>
 
-### 5. 多智能体产品发布的 SEO 审计 [回放 ▶️](https://www.eigent.ai/download?share_token=IjE3NTM2OTk5NzExNDQtNTY5NiI.aIex0w.jc_NIPmfIf9e3zGt-oG9fbMi3K4__1753699971144-5696)
+### 5. 多智能体产品发布的 SEO 审计 [回放 ▶️](https://www.node.ai/download?share_token=IjE3NTM2OTk5NzExNDQtNTY5NiI.aIex0w.jc_NIPmfIf9e3zGt-oG9fbMi3K4__1753699971144-5696)
 
 <details>
 <summary><strong>提示：</strong> <kbd>为了支持我们新的多智能体产品发布... <kbd></summary>
@@ -232,7 +232,7 @@ Eigent 完全开源。您可以下载、检查和修改代码，确保透明度�
 
 <br>
 
-### 6. 识别下载文件夹中的重复文件 [回放 ▶️](https://www.eigent.ai/download?share_token=IjE3NTM3NjAzODgxNzEtMjQ4Ig.aIhKLQ.epOG--0Nj0o4Bqjtdqm9OZdaqRQ__1753760388171-248)
+### 6. 识别下载文件夹中的重复文件 [回放 ▶️](https://www.node.ai/download?share_token=IjE3NTM3NjAzODgxNzEtMjQ4Ig.aIhKLQ.epOG--0Nj0o4Bqjtdqm9OZdaqRQ__1753760388171-248)
 
 <details>
 <summary><strong>提示：</strong> <kbd>我的 Documents 目录中有一个名为 mydocs 的文件夹... <kbd></summary>
@@ -242,7 +242,7 @@ Eigent 完全开源。您可以下载、检查和修改代码，确保透明度�
 
 <br>
 
-### 7. 添加签名到 PDF [Replay ▶️](https://www.eigent.ai/download?share_token=IjE3NTQwOTU0ODM0NTItNTY2MSI.aJCHrA.Mg5yPOFqj86H_GQvvRNditzepXc__1754095483452-5661)
+### 7. 添加签名到 PDF [Replay ▶️](https://www.node.ai/download?share_token=IjE3NTQwOTU0ODM0NTItNTY2MSI.aJCHrA.Mg5yPOFqj86H_GQvvRNditzepXc__1754095483452-5661)
 
 <details>
 <summary><strong>提示:</strong> <kbd>请将此签名图片添加到 PDF 中的签名区域 ... <kbd></summary>
@@ -273,7 +273,7 @@ Eigent 完全开源。您可以下载、检查和修改代码，确保透明度�
 
 > \[!重要]
 >
-> **给 Eigent 加星标**，您将通过 GitHub 及时收到所有发布通知 ⭐️
+> **给 Node 加星标**，您将通过 GitHub 及时收到所有发布通知 ⭐️
 
 ![][image-star-us]
 
@@ -291,18 +291,18 @@ Eigent 完全开源。您可以下载、检查和修改代码，确保透明度�
 
 ## [🤝 贡献][contribution-link]
 
-我们相信通过开源协作建立信任。您的创意贡献将推动 `Eigent` 的创新。探索我们的 GitHub 问题与项目，加入我们 🤝❤️ [贡献指南][contribution-link]
+我们相信通过开源协作建立信任。您的创意贡献将推动 `Node` 的创新。探索我们的 GitHub 问题与项目，加入我们 🤝❤️ [贡献指南][contribution-link]
 
 ## [❤️ 赞助][sponsor-link]
 
-Eigent 基于 [CAMEL-AI.org][camel-ai-org-github] 的研究和基础设施构建。[赞助 CAMEL-AI.org][sponsor-link] 将使 `Eigent` 变得更好。
+Node 基于 [CAMEL-AI.org][camel-ai-org-github] 的研究和基础设施构建。[赞助 CAMEL-AI.org][sponsor-link] 将使 `Node` 变得更好。
 
 ## **📄 开源许可证**
 
-本仓库采用 [**Eigent 开源许可证**](LICENSE)，基于 Apache 2.0 并附加额外条款。
+本仓库采用 [**Node 开源许可证**](LICENSE)，基于 Apache 2.0 并附加额外条款。
 
 ## 🌐 社区与联系
-更多信息请联系 info@eigent.ai
+更多信息请联系 info@node.ai
 
 - **GitHub Issues：** 报告错误、请求功能并跟踪开发进度。[提交问题][github-issue-link]  
 
@@ -325,16 +325,16 @@ Eigent 基于 [CAMEL-AI.org][camel-ai-org-github] 的研究和基础设施构建
 
 [built-with-camel]:https://img.shields.io/badge/-Built--with--CAMEL-4C19E8.svg?logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQ4IiBoZWlnaHQ9IjI3MiIgdmlld0JveD0iMCAwIDI0OCAyNzIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik04LjgzMTE3IDE4LjU4NjVMMCAzMC44MjY3QzUuNDY2OTIgMzUuMDQzMiAxNS4xMzkxIDM4LjgyNTggMjQuODExNCAzNi4yOTU5QzMwLjY5ODggNDAuOTM0MSAzOS42NzAyIDQwLjIzMTMgNDQuMTU1OSA0MC4wOTA4QzQzLjQ1NSA0Ny4zOTk0IDQyLjQ3MzcgNzAuOTU1OCA0NC4xNTU5IDEwNi43MTJDNDUuODM4IDE0Mi40NjggNzEuNzcwOCAxNjYuODY4IDg0LjUyNjkgMTc0LjU5OEw3Ni4wMDAyIDIyMEw4NC41MjY5IDI3MkgxMDguOTE4TDk4LjAwMDIgMjIwTDEwOC45MTggMTc0LjU5OEwxMjkuOTQ0IDI3MkgxNTQuNzU2TDEzNC4xNSAxNzQuNTk4SDE4Ny4xMzdMMTY2LjUzMSAyNzJIMTkxLjc2M0wyMTIuMzY5IDE3NC41OThMMjI2IDIyMEwyMTIuMzY5IDI3MkgyMzcuNjAxTDI0OC4wMDEgMjIwTDIzNy4xOCAxNzQuNTk4QzIzOS4yODMgMTY5LjExNyAyNDAuNDAxIDE2Ni45NzYgMjQxLjgwNiAxNjEuMTA1QzI0OS4zNzUgMTI5LjQ4MSAyMzUuMDc3IDEwMy45MDEgMjI2LjY2NyA5NC40ODRMMjA2LjQ4MSA3My44MjNDMTk3LjY1IDY0Ljk2ODMgMTgyLjUxMSA2NC41NDY3IDE3Mi44MzkgNzIuNTU4MUMxNjUuNzI4IDc4LjQ0NzcgMTYxLjcwMSA3OC43NzI3IDE1NC43NTYgNzIuNTU4MUMxNTEuODEyIDcwLjAyODEgMTQ0LjUzNSA2MS40ODg5IDEzNC45OTEgNTMuNTgzN0MxMjUuMzE5IDQ1LjU3MjMgMTA4LjQ5NyA0OC45NDU1IDEwMi4xODkgNTUuNjkxOUw3My41OTMxIDg0LjM2NDRWNy42MjM0OUw3OS4xMjczIDBDNjAuOTA0MiAzLjY1NDMzIDIzLjgwMjEgOS41NjMwOSAxOS43NjUgMTAuNTc1MUMxNS43Mjc5IDExLjU4NyAxMC43OTM3IDE2LjMzNzcgOC44MzExNyAxOC41ODY1WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTQzLjIwMzggMTguNzE4N0w0OS4wOTEyIDEzLjA0OTNMNTQuOTc4NyAxOC43MTg3TDQ5LjA5MTIgMjQuODI0Mkw0My4yMDM4IDE4LjcxODdaIiBmaWxsPSIjNEMxOUU4Ii8+Cjwvc3ZnPgo=
 
-[eigent-github]: https://github.com/eigent-ai/eigent
-[github-star]: https://img.shields.io/github/stars/eigent-ai?color=F5F4F0&labelColor=gray&style=plastic&logo=github
+[node-github]: https://github.com/node-ai/node
+[github-star]: https://img.shields.io/github/stars/node-ai?color=F5F4F0&labelColor=gray&style=plastic&logo=github
 [camel-ai-org-github]: https://github.com/camel-ai
 
 [camel-github]: https://github.com/camel-ai/camel
-[eigent-github]: https://github.com/eigent-ai/eigent
-[contribution-link]: https:/github.com/eigent-ai/eigent/blob/master/CONTRIBUTING.md
+[node-github]: https://github.com/node-ai/node
+[contribution-link]: https:/github.com/node-ai/node/blob/master/CONTRIBUTING.md
 
-[social-x-link]: https://x.com/Eigent_AI
-[social-x-shield]: https://img.shields.io/badge/-%40Eigent_AI-white?labelColor=gray&logo=x&logoColor=white&style=plastic
+[social-x-link]: https://x.com/Node_AI
+[social-x-shield]: https://img.shields.io/badge/-%40Node_AI-white?labelColor=gray&logo=x&logoColor=white&style=plastic
 
 [reddit-url]: https://www.reddit.com/r/CamelAI/
 [reddit-image]: https://img.shields.io/reddit/subreddit-subscribers/CamelAI?style=plastic&logo=reddit&label=r%2FCAMEL&labelColor=white
@@ -345,30 +345,30 @@ Eigent 基于 [CAMEL-AI.org][camel-ai-org-github] 的研究和基础设施构建
 [sponsor-link]: https://github.com/sponsors/camel-ai
 [sponsor-shield]: https://img.shields.io/badge/-Sponsor%20CAMEL--AI-1d1d1d?logo=github&logoColor=white&style=plastic
 
-[eigent-download]: https://www.eigent.ai/download
-[download-shield]: https://img.shields.io/badge/Download%20Eigent-363AF5?style=plastic
+[node-download]: https://www.node.ai/download
+[download-shield]: https://img.shields.io/badge/Download%20Node-363AF5?style=plastic
 
-[join-us]:https://eigent-ai.notion.site/eigent-ai-careers
+[join-us]:https://node-ai.notion.site/node-ai-careers
 [join-us-image]:https://img.shields.io/badge/Join%20Us-yellow?style=plastic
 
-<!-- camel & eigent -->
+<!-- camel & node -->
 [camel-site]: https://www.camel-ai.org
-[eigent-site]: https://www.eigent.ai
-[docs-site]: https://docs.eigent.ai
-[github-issue-link]: https://github.com/eigent-ai/eigent/issues
+[node-site]: https://www.node.ai
+[docs-site]: https://docs.node.ai
+[github-issue-link]: https://github.com/node-ai/node/issues
 
 <!-- marketing -->
-[image-seperator]: https://eigent-ai.github.io/.github/assets/seperator.png 
-[image-head]: https://eigent-ai.github.io/.github/assets/head.png 
-[image-public-beta]: https://eigent-ai.github.io/.github/assets/banner.png
-[image-star-us]: https://eigent-ai.github.io/.github/assets/star-us.gif
-[image-opensource]: https://eigent-ai.github.io/.github/assets/opensource.png
-[image-wechat]: https://eigent-ai.github.io/.github/assets/wechat.png
+[image-seperator]: https://node-ai.github.io/.github/assets/seperator.png 
+[image-head]: https://node-ai.github.io/.github/assets/head.png 
+[image-public-beta]: https://node-ai.github.io/.github/assets/banner.png
+[image-star-us]: https://node-ai.github.io/.github/assets/star-us.gif
+[image-opensource]: https://node-ai.github.io/.github/assets/opensource.png
+[image-wechat]: https://node-ai.github.io/.github/assets/wechat.png
 [image-join-us]: https://camel-ai.github.io/camel_asset/graphics/join_us.png
 
 <!-- feature -->
-[image-workforce]: https://eigent-ai.github.io/.github/assets/feature_dynamic_workforce.gif
-[image-human-in-the-loop]: https://eigent-ai.github.io/.github/assets/feature_human_in_the_loop.gif
-[image-customise-workers]: https://eigent-ai.github.io/.github/assets/feature_customise_workers.gif
-[image-add-mcps]: https://eigent-ai.github.io/.github/assets/feature_add_mcps.gif
-[image-local-model]: https://eigent-ai.github.io/.github/assets/feature_local_model.gif
+[image-workforce]: https://node-ai.github.io/.github/assets/feature_dynamic_workforce.gif
+[image-human-in-the-loop]: https://node-ai.github.io/.github/assets/feature_human_in_the_loop.gif
+[image-customise-workers]: https://node-ai.github.io/.github/assets/feature_customise_workers.gif
+[image-add-mcps]: https://node-ai.github.io/.github/assets/feature_add_mcps.gif
+[image-local-model]: https://node-ai.github.io/.github/assets/feature_local_model.gif

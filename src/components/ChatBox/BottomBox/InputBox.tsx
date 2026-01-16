@@ -93,7 +93,7 @@ export const Inputbox = ({
 	files = [],
 	onFilesChange,
 	onAddFile,
-	placeholder = "Ask Eigent to automate your tasks",
+	placeholder = "Ask Node to automate your tasks",
 	disabled = false,
 	className,
 	textareaRef: externalTextareaRef,

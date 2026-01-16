@@ -795,7 +795,7 @@ class TestChatServiceIntegration:
             
             mock_question_agent.return_value = MagicMock()
             mock_summary_agent.return_value = MagicMock()
-            mock_workforce.eigent_make_sub_tasks.return_value = []
+            mock_workforce.node_make_sub_tasks.return_value = []
             
             # Convert async generator to list
             responses = []

@@ -68,7 +68,7 @@ class Workforce(BaseWorkforce):
         self.task_agent._stream_accumulate_explicit = True
         logger.info(f"[WF-LIFECYCLE] ✅ Workforce.__init__ COMPLETED, id={id(self)}")
 
-    def eigent_make_sub_tasks(
+    def node_make_sub_tasks(
         self,
         task: Task,
         coordinator_context: str = "",
@@ -76,7 +76,7 @@ class Workforce(BaseWorkforce):
         on_stream_text=None,
     ):
         """
-        Split process_task method to eigent_make_sub_tasks and eigent_start method.
+        Split process_task method to node_make_sub_tasks and node_start method.
 
         Args:
             task: The main task to decompose
@@ -86,7 +86,7 @@ class Workforce(BaseWorkforce):
             on_stream_text: Optional callback for raw streaming text chunks
         """
         logger.info("=" * 80)
-        logger.info("🧩 [DECOMPOSE] eigent_make_sub_tasks CALLED", extra={
+        logger.info("🧩 [DECOMPOSE] node_make_sub_tasks CALLED", extra={
             "api_task_id": self.api_task_id,
             "workforce_id": id(self),
             "task_id": task.id
@@ -132,10 +132,10 @@ class Workforce(BaseWorkforce):
         logger.info("=" * 80)
         return subtasks
 
-    async def eigent_start(self, subtasks: list[Task]):
+    async def node_start(self, subtasks: list[Task]):
         """start the workforce"""
         logger.info("=" * 80)
-        logger.info("▶️  [WF-LIFECYCLE] eigent_start CALLED", extra={"api_task_id": self.api_task_id, "workforce_id": id(self)})
+        logger.info("▶️  [WF-LIFECYCLE] node_start CALLED", extra={"api_task_id": self.api_task_id, "workforce_id": id(self)})
         logger.info(f"[WF-LIFECYCLE] Starting workforce execution with {len(subtasks)} subtasks")
         logger.info(f"[WF-LIFECYCLE] Current workforce state: {self._state.name}, _running: {self._running}")
         logger.info("=" * 80)
@@ -156,7 +156,7 @@ class Workforce(BaseWorkforce):
             logger.info(f"[WF-LIFECYCLE] Workforce state set to STOPPED after error")
             raise
         finally:
-            logger.info(f"[WF-LIFECYCLE] eigent_start finally block, current state: {self._state.name}")
+            logger.info(f"[WF-LIFECYCLE] node_start finally block, current state: {self._state.name}")
             if self._state != WorkforceState.STOPPED:
                 self._state = WorkforceState.IDLE
                 logger.info(f"[WF-LIFECYCLE] Workforce state set to IDLE")

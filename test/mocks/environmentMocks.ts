@@ -15,11 +15,11 @@ export interface MockEnvironmentState {
     backendPathExists: boolean
     pyprojectExists: boolean
     // New fields for process.ts functions
-    eigentDirExists: boolean
-    eigentBinDirExists: boolean
-    eigentCacheDirExists: boolean
-    eigentVenvsDirExists: boolean
-    eigentRuntimeDirExists: boolean
+    nodeDirExists: boolean
+    nodeBinDirExists: boolean
+    nodeCacheDirExists: boolean
+    nodeVenvsDirExists: boolean
+    nodeRuntimeDirExists: boolean
     resourcesDirExists: boolean
     binariesExist: { [name: string]: boolean }
     oldVenvsExist: string[] // List of old venv directories that exist
@@ -61,11 +61,11 @@ export function createFileSystemMock() {
       installedLockExists: true,
       backendPathExists: true,
       pyprojectExists: true,
-      eigentDirExists: true,
-      eigentBinDirExists: true,
-      eigentCacheDirExists: true,
-      eigentVenvsDirExists: true,
-      eigentRuntimeDirExists: true,
+      nodeDirExists: true,
+      nodeBinDirExists: true,
+      nodeCacheDirExists: true,
+      nodeVenvsDirExists: true,
+      nodeRuntimeDirExists: true,
       resourcesDirExists: true,
       binariesExist: { 'uv': true, 'bun': true },
       oldVenvsExist: []
@@ -103,12 +103,12 @@ export function createFileSystemMock() {
       if (path.includes('.venv')) return mockState.filesystem.venvExists
       if (path.includes('backend')) return mockState.filesystem.backendPathExists
       if (path.includes('pyproject.toml')) return mockState.filesystem.pyprojectExists
-      if (path.includes('.eigent/bin') || path.includes('.eigent\\bin')) return mockState.filesystem.eigentBinDirExists
-      if (path.includes('.eigent/cache') || path.includes('.eigent\\cache')) return mockState.filesystem.eigentCacheDirExists
-      if (path.includes('.eigent/venvs') || path.includes('.eigent\\venvs')) return mockState.filesystem.eigentVenvsDirExists
-      if (path.includes('.eigent/runtime') || path.includes('.eigent\\runtime')) return mockState.filesystem.eigentRuntimeDirExists
-      if (path.includes('.eigent') && !path.includes('bin') && !path.includes('cache') && !path.includes('venvs') && !path.includes('runtime')) {
-        return mockState.filesystem.eigentDirExists
+      if (path.includes('.node/bin') || path.includes('.node\\bin')) return mockState.filesystem.nodeBinDirExists
+      if (path.includes('.node/cache') || path.includes('.node\\cache')) return mockState.filesystem.nodeCacheDirExists
+      if (path.includes('.node/venvs') || path.includes('.node\\venvs')) return mockState.filesystem.nodeVenvsDirExists
+      if (path.includes('.node/runtime') || path.includes('.node\\runtime')) return mockState.filesystem.nodeRuntimeDirExists
+      if (path.includes('.node') && !path.includes('bin') && !path.includes('cache') && !path.includes('venvs') && !path.includes('runtime')) {
+        return mockState.filesystem.nodeDirExists
       }
       if (path.includes('resources')) return mockState.filesystem.resourcesDirExists
       // Check for specific binaries
@@ -167,16 +167,16 @@ dependencies = ["fastapi", "uvicorn"]
       if (!path || typeof path !== 'string') return
       if (path.includes('backend')) {
         mockState.filesystem.backendPathExists = true
-      } else if (path.includes('.eigent/bin') || path.includes('.eigent\\bin')) {
-        mockState.filesystem.eigentBinDirExists = true
-      } else if (path.includes('.eigent/cache') || path.includes('.eigent\\cache')) {
-        mockState.filesystem.eigentCacheDirExists = true
-      } else if (path.includes('.eigent/venvs') || path.includes('.eigent\\venvs')) {
-        mockState.filesystem.eigentVenvsDirExists = true
-      } else if (path.includes('.eigent/runtime') || path.includes('.eigent\\runtime')) {
-        mockState.filesystem.eigentRuntimeDirExists = true
-      } else if (path.includes('.eigent')) {
-        mockState.filesystem.eigentDirExists = true
+      } else if (path.includes('.node/bin') || path.includes('.node\\bin')) {
+        mockState.filesystem.nodeBinDirExists = true
+      } else if (path.includes('.node/cache') || path.includes('.node\\cache')) {
+        mockState.filesystem.nodeCacheDirExists = true
+      } else if (path.includes('.node/venvs') || path.includes('.node\\venvs')) {
+        mockState.filesystem.nodeVenvsDirExists = true
+      } else if (path.includes('.node/runtime') || path.includes('.node\\runtime')) {
+        mockState.filesystem.nodeRuntimeDirExists = true
+      } else if (path.includes('.node')) {
+        mockState.filesystem.nodeDirExists = true
       }
     }),
 
@@ -193,7 +193,7 @@ dependencies = ["fastapi", "uvicorn"]
 
     readdirSync: vi.fn().mockImplementation((path: string, options?: any) => {
       if (!path || typeof path !== 'string') return []
-      if (path.includes('.eigent/venvs')) {
+      if (path.includes('.node/venvs')) {
         // Return old venv directories for cleanup testing
         return mockState.filesystem.oldVenvsExist.map(venv => ({
           name: venv,
@@ -216,11 +216,11 @@ dependencies = ["fastapi", "uvicorn"]
           installedLockExists: true,
           backendPathExists: true,
           pyprojectExists: true,
-          eigentDirExists: true,
-          eigentBinDirExists: true,
-          eigentCacheDirExists: true,
-          eigentVenvsDirExists: true,
-          eigentRuntimeDirExists: true,
+          nodeDirExists: true,
+          nodeBinDirExists: true,
+          nodeCacheDirExists: true,
+          nodeVenvsDirExists: true,
+          nodeRuntimeDirExists: true,
           resourcesDirExists: true,
           binariesExist: { 'uv': true, 'bun': true },
           oldVenvsExist: []
@@ -461,22 +461,22 @@ export function createProcessUtilsMock() {
       })
       
       utilsMock.getBinaryPath.mockImplementation(async (name?: string) => {
-        const binDir = `${mockState.system.homedir}/.eigent/bin`
+        const binDir = `${mockState.system.homedir}/.node/bin`
         if (!name) return binDir
         const binaryName = mockState.system.platform === 'win32' ? `${name}.exe` : name
         return `${binDir}/${binaryName}`
       })
       
       utilsMock.getCachePath.mockImplementation((folder: string) => {
-        return `${mockState.system.homedir}/.eigent/cache/${folder}`
+        return `${mockState.system.homedir}/.node/cache/${folder}`
       })
       
       utilsMock.getVenvPath.mockImplementation((version: string) => {
-        return `${mockState.system.homedir}/.eigent/venvs/backend-${version}`
+        return `${mockState.system.homedir}/.node/venvs/backend-${version}`
       })
       
       utilsMock.getVenvsBaseDir.mockReturnValue(
-        `${mockState.system.homedir}/.eigent/venvs`
+        `${mockState.system.homedir}/.node/venvs`
       )
       
       utilsMock.cleanupOldVenvs.mockImplementation(async (currentVersion: string) => {
@@ -617,12 +617,12 @@ export function setupMockEnvironment() {
         Object.defineProperty(process, 'platform', { value: 'linux', configurable: true })
       },
 
-      missingEigentDirectories: () => {
-        fsMock.mockState.filesystem.eigentDirExists = false
-        fsMock.mockState.filesystem.eigentBinDirExists = false
-        fsMock.mockState.filesystem.eigentCacheDirExists = false
-        fsMock.mockState.filesystem.eigentVenvsDirExists = false
-        fsMock.mockState.filesystem.eigentRuntimeDirExists = false
+      missingNodeDirectories: () => {
+        fsMock.mockState.filesystem.nodeDirExists = false
+        fsMock.mockState.filesystem.nodeBinDirExists = false
+        fsMock.mockState.filesystem.nodeCacheDirExists = false
+        fsMock.mockState.filesystem.nodeVenvsDirExists = false
+        fsMock.mockState.filesystem.nodeRuntimeDirExists = false
       }
     },
     

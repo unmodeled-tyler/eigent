@@ -39,7 +39,7 @@ class TerminalToolkit(BaseTerminalToolkit, AbstractToolkit):
         if agent_name is not None:
             self.agent_name = agent_name
         if working_directory is None:
-            working_directory = env("file_save_path", os.path.expanduser("~/.eigent/terminal/"))
+            working_directory = env("file_save_path", os.path.expanduser("~/.node/terminal/"))
 
         logger.info("Initializing TerminalToolkit", extra={
             "api_task_id": api_task_id,

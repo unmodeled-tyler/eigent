@@ -81,7 +81,7 @@ describe('ChatBox Integration Tests - Different ChatStore Configurations', () =>
         </TestWrapper>
       )
       
-      expect(screen.getByText(/layout.welcome-to-eigent/i)).toBeInTheDocument()
+      expect(screen.getByText(/layout.welcome-to-node/i)).toBeInTheDocument()
       expect(screen.getByText(/layout.how-can-i-help-you/i)).toBeInTheDocument()
     })
 
@@ -132,7 +132,7 @@ describe('ChatBox Integration Tests - Different ChatStore Configurations', () =>
         const calculatorElements = screen.getAllByText('Build a calculator app')
         expect(calculatorElements.length).toBeGreaterThanOrEqual(1)
         // The component should show task breakdown
-        expect(screen.queryByText(/layout.welcome-to-eigent/i)).not.toBeInTheDocument()
+        expect(screen.queryByText(/layout.welcome-to-node/i)).not.toBeInTheDocument()
       })
     })
 
@@ -171,7 +171,7 @@ describe('ChatBox Integration Tests - Different ChatStore Configurations', () =>
       await waitFor(() => {
         expect(screen.getByText('Hello, how are you?')).toBeInTheDocument()
         expect(screen.getByText('I am doing well, thank you! layout.how-can-i-help-you?')).toBeInTheDocument()
-        expect(screen.queryByText(/layout.welcome-to-eigent/i)).not.toBeInTheDocument()
+        expect(screen.queryByText(/layout.welcome-to-node/i)).not.toBeInTheDocument()
       })
     })
 
@@ -206,7 +206,7 @@ describe('ChatBox Integration Tests - Different ChatStore Configurations', () =>
         expect(screen.getByText('Calculate 2+2')).toBeInTheDocument()
         // Should show some loading indicator - adjust this based on actual UI
         // For now, just check that we don't show the welcome screen
-        expect(screen.queryByText(/layout.welcome-to-eigent/i)).not.toBeInTheDocument()
+        expect(screen.queryByText(/layout.welcome-to-node/i)).not.toBeInTheDocument()
       })
     })
 
@@ -334,7 +334,7 @@ describe('ChatBox Integration Tests - Different ChatStore Configurations', () =>
       }).not.toThrow()
       
       // Should show some content (either welcome screen or handle the error gracefully)
-      expect(screen.getByText(/layout.welcome-to-eigent/i) || screen.getByText(/error/i) || screen.getByRole('main')).toBeTruthy()
+      expect(screen.getByText(/layout.welcome-to-node/i) || screen.getByText(/error/i) || screen.getByRole('main')).toBeTruthy()
     })
 
     it('should handle missing activeTaskId gracefully', async () => {
@@ -348,7 +348,7 @@ describe('ChatBox Integration Tests - Different ChatStore Configurations', () =>
             <ChatBox />
           </TestWrapper>
         )
-        expect(screen.getByText(/layout.welcome-to-eigent/i)).toBeInTheDocument()
+        expect(screen.getByText(/layout.welcome-to-node/i)).toBeInTheDocument()
         return
       }
 
@@ -416,11 +416,11 @@ describe('ChatBox Integration Tests - Different ChatStore Configurations', () =>
       const privacyLink = screen.getByRole('link', { name: /layout.privacy-policy/i })
       
       expect(termsLink).toBeInTheDocument()
-      expect(termsLink).toHaveAttribute('href', 'https://www.eigent.ai/terms-of-use')
+      expect(termsLink).toHaveAttribute('href', 'https://www.node.ai/terms-of-use')
       expect(termsLink).toHaveAttribute('target', '_blank')
       
       expect(privacyLink).toBeInTheDocument()
-      expect(privacyLink).toHaveAttribute('href', 'https://www.eigent.ai/privacy-policy')
+      expect(privacyLink).toHaveAttribute('href', 'https://www.node.ai/privacy-policy')
       expect(privacyLink).toHaveAttribute('target', '_blank')
     })
   })

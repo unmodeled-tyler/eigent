@@ -87,7 +87,7 @@ class Chat(BaseModel):
     def file_save_path(self, path: str | None = None):
         email = re.sub(r'[\\/*?:"<>|\s]', "_", self.email.split("@")[0]).strip(".")
         # Use project-based structure: project_{project_id}/task_{task_id}
-        save_path = Path.home() / "eigent" / email / f"project_{self.project_id}" / f"task_{self.task_id}"
+        save_path = Path.home() / "node" / email / f"project_{self.project_id}" / f"task_{self.task_id}"
         if path is not None:
             save_path = save_path / path
         save_path.mkdir(parents=True, exist_ok=True)

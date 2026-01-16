@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
-  "productName": "Eigent",
-  "appId": "com.eigent.app",
+  "productName": "Node",
+  "appId": "com.node.app",
   "asar": true,
   "directories": {
     "output": "release"
@@ -20,15 +20,15 @@
   ],
   "protocols": [
     {
-      "name": "Eigent OAuth",
-      "schemes": ["eigent"]
+      "name": "Node OAuth",
+      "schemes": ["node"]
     }
   ],
   "publish": [
     {
       "provider": "github",
-      "owner": "eigent-ai",
-      "repo": "eigent",
+      "owner": "node",
+      "repo": "node",
       "releaseType": "release"
     }
   ],
@@ -45,8 +45,8 @@
     "extendInfo": {
       "CFBundleURLTypes": [
         {
-          "CFBundleURLName": "com.eigent.app",
-          "CFBundleURLSchemes": ["eigent"]
+          "CFBundleURLName": "com.node.app",
+          "CFBundleURLSchemes": ["node"]
         }
       ]
     }

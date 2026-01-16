@@ -47,7 +47,7 @@ describe('Process Utils Mocking Demo', () => {
       expect(uvBinaryName).toBe('uv.exe')
 
       const uvBinaryPath = await mockEnv.processUtilsMock.getBinaryPath('uv')
-      expect(uvBinaryPath).toContain('.eigent/bin')
+      expect(uvBinaryPath).toContain('.node/bin')
       expect(uvBinaryPath).toContain('uv.exe')
     })
 
@@ -58,7 +58,7 @@ describe('Process Utils Mocking Demo', () => {
       expect(uvBinaryName).toBe('uv')
 
       const uvBinaryPath = await mockEnv.processUtilsMock.getBinaryPath('uv')
-      expect(uvBinaryPath).toContain('.eigent/bin')
+      expect(uvBinaryPath).toContain('.node/bin')
       expect(uvBinaryPath).toContain('/uv')
       expect(uvBinaryPath).not.toContain('.exe')
     })
@@ -84,12 +84,12 @@ describe('Process Utils Mocking Demo', () => {
 
     it('should return correct cache paths', () => {
       const cachePath = mockEnv.processUtilsMock.getCachePath('models')
-      expect(cachePath).toContain('.eigent/cache/models')
+      expect(cachePath).toContain('.node/cache/models')
     })
 
     it('should return correct venv paths', () => {
       const venvPath = mockEnv.processUtilsMock.getVenvPath('1.0.0')
-      expect(venvPath).toContain('.eigent/venvs/backend-1.0.0')
+      expect(venvPath).toContain('.node/venvs/backend-1.0.0')
     })
   })
 
@@ -169,18 +169,18 @@ describe('Process Utils Mocking Demo', () => {
 
   describe('File System Operations', () => {
     it('should handle directory creation correctly', () => {
-      // Test .eigent directory creation
-      mockEnv.scenarios.missingEigentDirectories()
+      // Test .node directory creation
+      mockEnv.scenarios.missingNodeDirectories()
       
-      expect(mockEnv.mockState.filesystem.eigentDirExists).toBe(false)
-      expect(mockEnv.mockState.filesystem.eigentBinDirExists).toBe(false)
+      expect(mockEnv.mockState.filesystem.nodeDirExists).toBe(false)
+      expect(mockEnv.mockState.filesystem.nodeBinDirExists).toBe(false)
       
       // Simulate directory creation
-      mockEnv.fsMock.mkdirSync('/mock/home/.eigent', { recursive: true })
-      mockEnv.fsMock.mkdirSync('/mock/home/.eigent/bin', { recursive: true })
+      mockEnv.fsMock.mkdirSync('/mock/home/.node', { recursive: true })
+      mockEnv.fsMock.mkdirSync('/mock/home/.node/bin', { recursive: true })
       
-      expect(mockEnv.mockState.filesystem.eigentDirExists).toBe(true)
-      expect(mockEnv.mockState.filesystem.eigentBinDirExists).toBe(true)
+      expect(mockEnv.mockState.filesystem.nodeDirExists).toBe(true)
+      expect(mockEnv.mockState.filesystem.nodeBinDirExists).toBe(true)
     })
 
     it('should handle file operations correctly', () => {

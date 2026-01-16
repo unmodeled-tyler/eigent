@@ -346,13 +346,13 @@ describe('createWindow - Window Event Setup and Lifecycle', () => {
 
       // Simulate logging calls that would happen during window setup
       mockLog.info('Window content loaded, starting dependency check immediately...')
-      mockLog.info('.eigent directory structure ensured')
+      mockLog.info('.node directory structure ensured')
 
       expect(mockLog.info).toHaveBeenCalledWith(
         'Window content loaded, starting dependency check immediately...'
       )
       expect(mockLog.info).toHaveBeenCalledWith(
-        '.eigent directory structure ensured'
+        '.node directory structure ensured'
       )
     })
   })

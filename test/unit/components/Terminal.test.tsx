@@ -208,7 +208,7 @@ describe('Terminal Component', async () => {
         // Be tolerant of ordering/timing: assert that some writeln call contains the expected substrings
         const calls = (mockTerminal.writeln as any).mock.calls.flat().map(String)
         const joined = calls.join('\n')
-        expect(joined).toContain('=== Eigent Terminal ===')
+        expect(joined).toContain('=== Node Terminal ===')
         expect(joined).toContain('Instance: test-instance')
         expect(joined).toContain('Ready for commands...')
       }, { timeout: 500 })
@@ -222,7 +222,7 @@ describe('Terminal Component', async () => {
       })
       
       // Should not contain welcome messages
-      const welcomeCalls = (mockTerminal.writeln as any).mock.calls.flat().map(String).filter((c: string) => c.includes('=== Eigent Terminal ==='))
+      const welcomeCalls = (mockTerminal.writeln as any).mock.calls.flat().map(String).filter((c: string) => c.includes('=== Node Terminal ==='))
       expect(welcomeCalls).toHaveLength(0)
     })
 
@@ -253,7 +253,7 @@ describe('Terminal Component', async () => {
       
       await waitFor(() => {
         const calls = (mockTerminal.writeln as any).mock.calls.flat().map(String)
-        const found = calls.some(c => c.includes('[Eigent]'))
+        const found = calls.some(c => c.includes('[Node]'))
         expect(found).toBe(true)
       })
     })
@@ -309,7 +309,7 @@ describe('Terminal Component', async () => {
       keyHandler(mockEvent)
       
       expect(mockTerminal.writeln).toHaveBeenCalledWith('')
-      expect(mockTerminal.write).toHaveBeenCalledWith('Eigent:~$ ')
+      expect(mockTerminal.write).toHaveBeenCalledWith('Node:~$ ')
     })
 
     it('should handle Backspace key to delete character', () => {

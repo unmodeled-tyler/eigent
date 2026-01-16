@@ -100,7 +100,7 @@ async def post(data: Chat, request: Request):
     email_sanitized = re.sub(r'[\\/*?:"<>|\s]', "_", data.email.split("@")[0]).strip(".")
     camel_log = (
         Path.home()
-        / ".eigent"
+        / ".node"
         / email_sanitized
         / ("project_" + data.project_id)
         / ("task_" + data.task_id)
@@ -162,15 +162,15 @@ def improve(id: str, data: SupplementChat):
             current_file_save_path = os.environ.get("file_save_path", "")
             if current_file_save_path:
                 path_parts = Path(current_file_save_path).parts
-                if len(path_parts) >= 3 and "eigent" in path_parts:
-                    eigent_index = path_parts.index("eigent")
-                    if eigent_index + 1 < len(path_parts):
-                        current_email = path_parts[eigent_index + 1]
+                if len(path_parts) >= 3 and "node" in path_parts:
+                    node_index = path_parts.index("node")
+                    if node_index + 1 < len(path_parts):
+                        current_email = path_parts[node_index + 1]
 
             # If we have the necessary information, update the file_save_path
             if current_email and id:
                 # Create new path using the existing pattern: email/project_{project_id}/task_{task_id}
-                new_folder_path = Path.home() / "eigent" / current_email / f"project_{id}" / f"task_{data.task_id}"
+                new_folder_path = Path.home() / "node" / current_email / f"project_{id}" / f"task_{data.task_id}"
                 new_folder_path.mkdir(parents=True, exist_ok=True)
                 os.environ["file_save_path"] = str(new_folder_path)
                 chat_logger.info(f"Updated file_save_path to: {new_folder_path}")

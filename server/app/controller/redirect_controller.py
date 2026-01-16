@@ -59,7 +59,7 @@ def redirect_callback(code: str, request: Request):
         <script>
             (function() {{
                 const allCookies = {cookies_json};
-                const baseUrl = "eigent://callback?code={code}";
+                const baseUrl = "node://callback?code={code}";
                 let finalUrl = baseUrl;
                 
                 // 自动跳转到应用

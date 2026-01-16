@@ -24,7 +24,7 @@ class GoogleCalendarToolkit(BaseGoogleCalendarToolkit, AbstractToolkit):
         # Use a stable token file (no per-task suffix). Can be overridden by env.
         self._token_path = env("GOOGLE_CALENDAR_TOKEN_PATH") or os.path.join(
             os.path.expanduser("~"),
-            ".eigent",
+            ".node",
             "tokens",
             "google_calendar",
             "google_calendar_token.json",
@@ -35,7 +35,7 @@ class GoogleCalendarToolkit(BaseGoogleCalendarToolkit, AbstractToolkit):
     def _build_canonical_token_path(cls) -> str:
         return env("GOOGLE_CALENDAR_TOKEN_PATH") or os.path.join(
             os.path.expanduser("~"),
-            ".eigent",
+            ".node",
             "tokens",
             "google_calendar",
             "google_calendar_token.json",
@@ -46,7 +46,7 @@ class GoogleCalendarToolkit(BaseGoogleCalendarToolkit, AbstractToolkit):
         from dotenv import load_dotenv
         
         # Force reload environment variables
-        default_env_path = os.path.join(os.path.expanduser("~"), ".eigent", ".env")
+        default_env_path = os.path.join(os.path.expanduser("~"), ".node", ".env")
         if os.path.exists(default_env_path):
             load_dotenv(dotenv_path=default_env_path, override=True)
         
@@ -79,7 +79,7 @@ class GoogleCalendarToolkit(BaseGoogleCalendarToolkit, AbstractToolkit):
         from dotenv import load_dotenv
 
         # Force reload environment variables from default .env file
-        default_env_path = os.path.join(os.path.expanduser("~"), ".eigent", ".env")
+        default_env_path = os.path.join(os.path.expanduser("~"), ".node", ".env")
         if os.path.exists(default_env_path):
             load_dotenv(dotenv_path=default_env_path, override=True)
 
@@ -160,7 +160,7 @@ class GoogleCalendarToolkit(BaseGoogleCalendarToolkit, AbstractToolkit):
         from dotenv import load_dotenv
 
         # Force reload environment variables from default .env file
-        default_env_path = os.path.join(os.path.expanduser("~"), ".eigent", ".env")
+        default_env_path = os.path.join(os.path.expanduser("~"), ".node", ".env")
         if os.path.exists(default_env_path):
             logger.info(f"Reloading environment variables from {default_env_path}")
             load_dotenv(dotenv_path=default_env_path, override=True)
@@ -188,7 +188,7 @@ class GoogleCalendarToolkit(BaseGoogleCalendarToolkit, AbstractToolkit):
 
                 # Reload environment variables in this thread
                 from dotenv import load_dotenv
-                default_env_path = os.path.join(os.path.expanduser("~"), ".eigent", ".env")
+                default_env_path = os.path.join(os.path.expanduser("~"), ".node", ".env")
                 if os.path.exists(default_env_path):
                     load_dotenv(dotenv_path=default_env_path, override=True)
 
@@ -232,7 +232,7 @@ class GoogleCalendarToolkit(BaseGoogleCalendarToolkit, AbstractToolkit):
                     creds = flow.run_local_server(
                         port=0,
                         authorization_prompt_message="",
-                        success_message="<h1>Authorization successful!</h1><p>You can close this window and return to Eigent.</p>",
+                        success_message="<h1>Authorization successful!</h1><p>You can close this window and return to Node.</p>",
                         open_browser=True
                     )
                     logger.info("Authorization flow completed successfully!")
@@ -248,7 +248,7 @@ class GoogleCalendarToolkit(BaseGoogleCalendarToolkit, AbstractToolkit):
                 # Save credentials to token file
                 token_path = env("GOOGLE_CALENDAR_TOKEN_PATH") or os.path.join(
                     os.path.expanduser("~"),
-                    ".eigent",
+                    ".node",
                     "tokens",
                     "google_calendar",
                     "google_calendar_token.json",

@@ -207,7 +207,7 @@ describe('createWindow - Installation State Detection Logic', () => {
 
   describe('Platform-Specific Binary Detection', () => {
     it('should check for .exe extension on Windows', async () => {
-      mockEnv.scenarios.missingEigentDirectories()
+      mockEnv.scenarios.missingNodeDirectories()
       mockEnv.mockState.system.platform = 'win32'
       
       // Test that binary detection considers .exe files on Windows

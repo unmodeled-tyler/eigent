@@ -121,7 +121,7 @@ export default function SettingPrivacy() {
 				{" "}
 				<a
 					className="text-blue-500 no-underline"
-					href="https://www.eigent.ai/privacy-policy"
+					href="https://www.node.ai/privacy-policy"
 					target="_blank"
 				>
 					{t("setting.privacy-policy")}

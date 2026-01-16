@@ -1,6 +1,6 @@
 ---
 title: "Gemini"
-description: "This guide walks you through setting up your Google Gemini API key within Eigent to enable the Gemini model for your AI workforce."
+description: "This guide walks you through setting up your Google Gemini API key within Node to enable the Gemini model for your AI workforce."
 ---
 
 ### Prerequisites
@@ -12,7 +12,7 @@ description: "This guide walks you through setting up your Google Gemini API key
 
 **1. Access Application Settings**
 
-- Launch Eigent and navigate to the **Home Page**.
+- Launch Node and navigate to the **Home Page**.
 - Click on the **Settings** tab (usually located in the sidebar or top navigation).
 
 ![Gemini 1 Pn](/docs/images/gemini_1.png)
@@ -39,7 +39,7 @@ description: "This guide walks you through setting up your Google Gemini API key
 **4. Set as Default & Verify**
 
 - Once saved, the **"Set as Default"** button on the Gemini Config card will be selected/active.
-- **You are ready to go.** Your Eigent agents can now utilize the Gemini model.
+- **You are ready to go.** Your Node agents can now utilize the Gemini model.
 
 ![Gemini 4 Pn](/docs/images/gemini_4.png)
 

@@ -14,7 +14,7 @@ traceroot_logger = traceroot.get_logger("env")
 _thread_local = threading.local()
 
 # Default global environment path
-default_env_path = os.path.join(os.path.expanduser("~"), ".eigent", ".env")
+default_env_path = os.path.join(os.path.expanduser("~"), ".node", ".env")
 load_dotenv(dotenv_path=default_env_path)
 
 

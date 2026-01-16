@@ -316,7 +316,7 @@ class InstallLogs {
  */
 function cleanupCacheInProduction(): void {
   try {
-    const cacheBaseDir = path.join(os.homedir(), '.eigent', 'cache');
+    const cacheBaseDir = path.join(os.homedir(), '.node', 'cache');
 
     if (!fs.existsSync(cacheBaseDir)) {
       log.info('[CACHE CLEANUP] Cache directory does not exist, nothing to clean');

@@ -74,9 +74,9 @@ let profileInitPromise: Promise<void>;
 
 // Set remote debugging port
 // Storage strategy:
-// 1. Main window: partition 'persist:main_window' in app userData → Eigent account (persistent)
+// 1. Main window: partition 'persist:main_window' in app userData → Node account (persistent)
 // 2. WebView: partition 'persist:user_login' in app userData → will import cookies from tool_controller via session API
-// 3. tool_controller: ~/.eigent/browser_profiles/profile_user_login → source of truth for login cookies
+// 3. tool_controller: ~/.node/browser_profiles/profile_user_login → source of truth for login cookies
 // 4. CDP browser: uses separate profile (doesn't share with main app)
 profileInitPromise = findAvailablePort(browser_port).then(async (port) => {
   browser_port = port;
@@ -85,7 +85,7 @@ profileInitPromise = findAvailablePort(browser_port).then(async (port) => {
   // Create isolated profile for CDP browser only
   const browserProfilesBase = path.join(
     os.homedir(),
-    '.eigent',
+    '.node',
     'browser_profiles'
   );
   const cdpProfile = path.join(browserProfilesBase, `cdp_profile_${port}`);
@@ -154,16 +154,16 @@ if (!app.requestSingleInstanceLock()) {
 // ==================== protocol config ====================
 const setupProtocolHandlers = () => {
   if (process.env.NODE_ENV === 'development') {
-    const isDefault = app.isDefaultProtocolClient('eigent', process.execPath, [
+    const isDefault = app.isDefaultProtocolClient('node', process.execPath, [
       path.resolve(process.argv[1]),
     ]);
     if (!isDefault) {
-      app.setAsDefaultProtocolClient('eigent', process.execPath, [
+      app.setAsDefaultProtocolClient('node', process.execPath, [
         path.resolve(process.argv[1]),
       ]);
     }
   } else {
-    app.setAsDefaultProtocolClient('eigent');
+    app.setAsDefaultProtocolClient('node');
   }
 };
 
@@ -247,7 +247,7 @@ const setupSingleInstanceLock = () => {
   } else {
     app.on('second-instance', (event, argv) => {
       log.info('second-instance', argv);
-      const url = argv.find((arg) => arg.startsWith('eigent://'));
+      const url = argv.find((arg) => arg.startsWith('node://'));
       if (url) handleProtocolUrl(url);
       if (win) win.show();
     });
@@ -380,7 +380,7 @@ function registerIpcHandlers() {
         const { spawn } = await import('child_process');
 
         // Add --host parameter
-        const commandWithHost = `${command} --debug --host dev.eigent.ai/api/oauth/notion/callback?code=1`;
+        const commandWithHost = `${command} --debug --host dev.node.ai/api/oauth/notion/callback?code=1`;
         // const commandWithHost = `${command}`;
 
         log.info(' start execute command:', commandWithHost);
@@ -490,7 +490,7 @@ function registerIpcHandlers() {
       const platform = process.platform;
       const arch = process.arch;
       const systemVersion = `${platform}-${arch}`;
-      const defaultFileName = `eigent-${appVersion}-${systemVersion}-${Date.now()}.log`;
+      const defaultFileName = `node-${appVersion}-${systemVersion}-${Date.now()}.log`;
 
       // Show save dialog
       const { canceled, filePath } = await dialog.showSaveDialog({
@@ -890,7 +890,7 @@ function registerIpcHandlers() {
     fs.writeFileSync(ENV_PATH, lines.join('\n'), 'utf-8');
 
     // Also write to global .env file for backend process to read
-    const GLOBAL_ENV_PATH = path.join(os.homedir(), '.eigent', '.env');
+    const GLOBAL_ENV_PATH = path.join(os.homedir(), '.node', '.env');
     let globalContent = '';
     try {
       globalContent = fs.existsSync(GLOBAL_ENV_PATH)
@@ -928,7 +928,7 @@ function registerIpcHandlers() {
     log.info('env-remove success', ENV_PATH);
 
     // Also remove from global .env file
-    const GLOBAL_ENV_PATH = path.join(os.homedir(), '.eigent', '.env');
+    const GLOBAL_ENV_PATH = path.join(os.homedir(), '.node', '.env');
     try {
       let globalContent = fs.existsSync(GLOBAL_ENV_PATH)
         ? fs.readFileSync(GLOBAL_ENV_PATH, 'utf-8')
@@ -1184,15 +1184,15 @@ function registerIpcHandlers() {
   registerUpdateIpcHandlers();
 }
 
-// ==================== ensure eigent directories ====================
-const ensureEigentDirectories = () => {
-  const eigentBase = path.join(os.homedir(), '.eigent');
+// ==================== ensure node directories ====================
+const ensureNodeDirectories = () => {
+  const nodeBase = path.join(os.homedir(), '.node');
   const requiredDirs = [
-    eigentBase,
-    path.join(eigentBase, 'bin'),
-    path.join(eigentBase, 'cache'),
-    path.join(eigentBase, 'venvs'),
-    path.join(eigentBase, 'runtime'),
+    nodeBase,
+    path.join(nodeBase, 'bin'),
+    path.join(nodeBase, 'cache'),
+    path.join(nodeBase, 'venvs'),
+    path.join(nodeBase, 'runtime'),
   ];
 
   for (const dir of requiredDirs) {
@@ -1202,7 +1202,7 @@ const ensureEigentDirectories = () => {
     }
   }
 
-  log.info('.eigent directory structure ensured');
+  log.info('.node directory structure ensured');
 };
 
 // ==================== Shared backend startup logic ====================
@@ -1228,8 +1228,8 @@ let installationLock: Promise<PromiseReturnType> = Promise.resolve({
 async function createWindow() {
   const isMac = process.platform === 'darwin';
 
-  // Ensure .eigent directories exist before anything else
-  ensureEigentDirectories();
+  // Ensure .node directories exist before anything else
+  ensureNodeDirectories();
 
   log.info(
     `[PROJECT BROWSER WINDOW] Creating BrowserWindow which will start Chrome with CDP on port ${browser_port}`
@@ -1246,7 +1246,7 @@ async function createWindow() {
   );
 
   win = new BrowserWindow({
-    title: 'Eigent',
+    title: 'Node',
     width: 1200,
     height: 800,
     minWidth: 1050,
@@ -1281,7 +1281,7 @@ async function createWindow() {
   try {
     const browserProfilesBase = path.join(
       os.homedir(),
-      '.eigent',
+      '.node',
       'browser_profiles'
     );
     const toolControllerProfile = path.join(

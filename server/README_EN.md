@@ -67,16 +67,16 @@ npm run dev
 docker ps
 
 # Stop/Start API container (keep DB)
-docker stop eigent_api
-docker start eigent_api
+docker stop node_api
+docker start node_api
 
 # Stop/Start all (API + DB)
 docker compose stop
 docker compose start
 
 # View logs
-docker logs -f eigent_api | cat
-docker logs -f eigent_postgres | cat
+docker logs -f node_api | cat
+docker logs -f node_postgres | cat
 ```
 
 ---
@@ -85,14 +85,14 @@ docker logs -f eigent_postgres | cat
 You can run the API locally with hot-reload while keeping the database in Docker:
 ```bash
 # Stop API in container, keep DB
-docker stop eigent_api
+docker stop node_api
 
 # Initialize database (first-time or when DB schema changes)
 cd server
 uv run alembic upgrade head
 
 # Run locally (provide DB connection string)
-export database_url=postgresql://postgres:123456@localhost:5432/eigent
+export database_url=postgresql://postgres:123456@localhost:5432/node
 uv run uvicorn main:api --reload --port 3001 --host 0.0.0.0
 ```
 

@@ -3,13 +3,13 @@ title: Support
 description: Find answers to frequently asked questions.
 ---
 
-For account and billing questions, email our support team at [info@eigent.ai](mailto:info@eigent.ai).
+For account and billing questions, email our support team at [info@node.ai](mailto:info@node.ai).
 
-Eigent offers flexible plans for every type of user, from individuals to large enterprises. Our services are divided into two main categories: Cloud and Self-Hosted.
+Node offers flexible plans for every type of user, from individuals to large enterprises. Our services are divided into two main categories: Cloud and Self-Hosted.
 
 ### Cloud Service
 
-Our Cloud Service is a subscription-based offering that gives you access to Eigent's powerful AI models and infrastructure without any setup.
+Our Cloud Service is a subscription-based offering that gives you access to Node's powerful AI models and infrastructure without any setup.
 
 - **Free:** Perfect for getting started. Includes **500 Credits** per month.
 - **Plus:** For more frequent users. Includes **2,000 Credits** per month.
@@ -22,12 +22,12 @@ Our Cloud Service is a subscription-based offering that gives you access to Eige
 > *Credits from Add-On Packages will carry over to subsequent billing cycles.*
 > 
 > 
-> *See your Credits Usage directly in Settings → Account → [Manage](https://www.eigent.ai/dashboard).*
+> *See your Credits Usage directly in Settings → Account → [Manage](https://www.node.ai/dashboard).*
 > 
 
 ### Self-Hosted Service
 
-For users who require more control, privacy, and customization, we offer self-hosted solutions. To view more open-source information, please visit [GitHub](https://github.com/eigent-ai/eigent).
+For users who require more control, privacy, and customization, we offer self-hosted solutions. To view more open-source information, please visit [GitHub](https://github.com/node-ai/node).
 
 - **Free:** Designed for individual users, open-source developers, small teams, or non-commercial projects. This plan requires you to host your own models and provide your own API keys. 
 
@@ -35,14 +35,14 @@ For users who require more control, privacy, and customization, we offer self-ho
 
 - **Custom:** A bespoke solution for enterprise clients with specific needs for features, support, security and control.
 
-For inquiries about our Scalable and Custom plans, please please refer to our [**License**](https://github.com/eigent-ai/eigent) or email us at **info@eigent.ai**.
+For inquiries about our Scalable and Custom plans, please please refer to our [**License**](https://github.com/node-ai/node) or email us at **info@node.ai**.
 
 ## Credits & Billing
 
 ### How Credits work?
 
 - 1 USD = 100 Credits for top‑ups.
-- Credits are the currency you use to power your tasks in Eigent's Cloud Service. Every action that uses our cloud service consumes Credits.
+- Credits are the currency you use to power your tasks in Node's Cloud Service. Every action that uses our cloud service consumes Credits.
 
 ### Free Credits and Trials
 
@@ -52,7 +52,7 @@ For inquiries about our Scalable and Custom plans, please please refer to our [*
 
 ### **Upgrading or Topping‑up**
 
-- Click **User** icon in the Eigent webpage.
+- Click **User** icon in the Node webpage.
 - Click **Account Settings** to open your personal account page.
 - Click **Upgrade** to move to a higher tier with more monthly Credits.
 - Click **+ Add Credits** to purchase an Add-On Pack when you've used up your monthly allowance.
@@ -86,8 +86,8 @@ If your balance becomes negative, it will be displayed as **0**. This means your
 - You can cancel any subscription or Add-On Pack purchase within 7 days for a full refund.
     - Plan resets to Free and billing cycle resets to registration date.
     - Credits balance re‑computed according to Free‑tier rules.
-- How do I cancel my subscription? Please contact **info@eigent.ai.**
+- How do I cancel my subscription? Please contact **info@node.ai.**
 - You can download invoices from the payment confirmation email sent to your registered email address.
 
 
-For any questions about your bill or account status, email us anytime at [info@eigent.ai](mailto:info@eigent.ai).
+For any questions about your bill or account status, email us anytime at [info@node.ai](mailto:info@node.ai).

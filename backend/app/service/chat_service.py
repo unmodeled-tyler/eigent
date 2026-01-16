@@ -434,7 +434,7 @@ async def step_solve(options: Chat, request: Request, task_lock: TaskLock):
                             camel_task.additional_info = {Path(file_path).name: file_path for file_path in options.attaches}
 
                     # Stream decomposition in background so queue items (decompose_text) are processed immediately
-                    logger.info(f"[NEW-QUESTION] 🧩 Starting task decomposition via workforce.eigent_make_sub_tasks")
+                    logger.info(f"[NEW-QUESTION] 🧩 Starting task decomposition via workforce.node_make_sub_tasks")
                     stream_state = {"subtasks": [], "seen_ids": set(), "last_content": ""}
                     state_holder: dict[str, Any] = {"sub_tasks": [], "summary_task": ""}
 
@@ -479,7 +479,7 @@ async def step_solve(options: Chat, request: Request, task_lock: TaskLock):
                         nonlocal camel_task, summary_task_content
                         try:
                             sub_tasks = await asyncio.to_thread(
-                                workforce.eigent_make_sub_tasks,
+                                workforce.node_make_sub_tasks,
                                 camel_task,
                                 context_for_coordinator,
                                 on_stream_batch,
@@ -677,7 +677,7 @@ async def step_solve(options: Chat, request: Request, task_lock: TaskLock):
                 task_lock.status = Status.processing
                 if not sub_tasks:
                     sub_tasks = getattr(task_lock, "decompose_sub_tasks", [])
-                task = asyncio.create_task(workforce.eigent_start(sub_tasks))
+                task = asyncio.create_task(workforce.node_start(sub_tasks))
                 task_lock.add_background_task(task)
             elif item.action == Action.task_state:
                 # Track completed task results for the end event
@@ -1008,7 +1008,7 @@ async def step_solve(options: Chat, request: Request, task_lock: TaskLock):
                         )
                     )
                     if workforce is not None:
-                        task = asyncio.create_task(workforce.eigent_start(camel_task.subtasks))
+                        task = asyncio.create_task(workforce.node_start(camel_task.subtasks))
                         task_lock.add_background_task(task)
             elif item.action == Action.budget_not_enough:
                 if workforce is not None:

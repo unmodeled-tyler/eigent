@@ -303,7 +303,7 @@ export default function Login() {
         >
           {platform === 'darwin' && (
             <span className="text-label-md text-text-heading font-bold">
-              Eigent
+              Node
             </span>
           )}
         </div>
@@ -350,7 +350,7 @@ export default function Login() {
                     navigate('/signup');
                   } else {
                     window.open(
-                      'https://www.eigent.ai/signup',
+                      'https://www.node.ai/signup',
                       '_blank',
                       'noopener,noreferrer'
                     );
@@ -451,7 +451,7 @@ export default function Login() {
             size="xs"
             onClick={() =>
               window.open(
-                'https://www.eigent.ai/privacy-policy',
+                'https://www.node.ai/privacy-policy',
                 '_blank',
                 'noopener,noreferrer'
               )

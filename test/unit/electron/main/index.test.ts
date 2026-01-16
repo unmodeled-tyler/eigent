@@ -650,7 +650,7 @@ describe("Electron Main Index Functions", () => {
       Object.defineProperty(process, "platform", { value: "darwin" });
 
       const mockConfig = {
-        title: "Eigent",
+        title: "Node",
         width: 1200,
         height: 800,
         minWidth: 1200,
@@ -677,7 +677,7 @@ describe("Electron Main Index Functions", () => {
       Object.defineProperty(process, "platform", { value: "win32" });
 
       const mockConfig = {
-        title: "Eigent",
+        title: "Node",
         width: 1200,
         height: 800,
         minWidth: 1200,

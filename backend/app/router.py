@@ -1,5 +1,5 @@
 """
-Centralized router registration for the Eigent API.
+Centralized router registration for the Node API.
 All routers are explicitly registered here for better visibility and maintainability.
 """
 from fastapi import FastAPI

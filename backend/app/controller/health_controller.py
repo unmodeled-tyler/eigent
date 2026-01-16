@@ -16,7 +16,7 @@ class HealthResponse(BaseModel):
 async def health_check():
     """Health check endpoint for verifying backend is ready to accept requests."""
     logger.debug("Health check requested")
-    response = HealthResponse(status="ok", service="eigent")
+    response = HealthResponse(status="ok", service="node")
     logger.debug("Health check completed", extra={"status": response.status, "service": response.service})
     return response
 

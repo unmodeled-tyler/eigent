@@ -99,7 +99,7 @@ function HeaderWin() {
 			}
 			if (response.savedPath) {
 				window.location.href =
-					"https://github.com/eigent-ai/eigent/issues/new/choose";
+					"https://github.com/node/node/issues/new/choose";
 				alert(t("layout.log-saved") + response.savedPath);
 			}
 		} catch (e: any) {
@@ -133,7 +133,7 @@ function HeaderWin() {
 		try {
 			const res: any = await proxyFetchGet("/api/user/invite_code");
 			if (res?.invite_code) {
-				const inviteLink = `https://www.eigent.ai/signup?invite_code=${res.invite_code}`;
+				const inviteLink = `https://www.node.ai/signup?invite_code=${res.invite_code}`;
 				await navigator.clipboard.writeText(inviteLink);
 				toast.success(t("layout.invitation-link-copied"));
 			} else {
@@ -224,7 +224,7 @@ function HeaderWin() {
 					platform === "darwin" && isFullscreen ? "w-0" : "w-[70px]"
 				} flex items-center justify-center no-drag`}
 			>
-				{platform !== "darwin" && <span className="text-label-md text-text-heading font-bold">Eigent</span>}
+				{platform !== "darwin" && <span className="text-label-md text-text-heading font-bold">Node</span>}
 			</div>
 
 			{/* center */}

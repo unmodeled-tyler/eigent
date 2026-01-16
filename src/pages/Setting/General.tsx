@@ -151,7 +151,7 @@ export default function SettingGeneral() {
 				<div className="flex items-center gap-sm">
 					<Button
 						onClick={() => {
-							window.location.href = `https://www.eigent.ai/dashboard?email=${authStore.email}`;
+							window.location.href = `https://www.node.ai/dashboard?email=${authStore.email}`;
 						}}
 						variant="primary"
 						size="xs"

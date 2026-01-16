@@ -15,7 +15,7 @@ export interface MockedElectronAPI {
     // Environment-related state
     envFileExists: boolean
     envContent: string
-    eigentDirExists: boolean
+    nodeDirExists: boolean
     userEmail: string
     mcpRemoteConfigExists: boolean
     hasToken: boolean
@@ -79,7 +79,7 @@ export function createElectronAPIMock(): MockedElectronAPI {
     // Environment-related state
     envFileExists: true,
     envContent: 'MOCK_VAR=mock_value\n# === MCP INTEGRATION ENV START ===\nMCP_KEY=test_value\n# === MCP INTEGRATION ENV END ===',
-    eigentDirExists: true,
+    nodeDirExists: true,
     userEmail: 'test@example.com',
     mcpRemoteConfigExists: true,
     hasToken: true,
@@ -171,7 +171,7 @@ export function createElectronAPIMock(): MockedElectronAPI {
     // EnvUtil mock functions
     getEnvPath: vi.fn().mockImplementation((email: string) => {
       const sanitizedEmail = email.split("@")[0].replace(/[\\/*?:"<>|\s]/g, "_").replace(".", "_")
-      return `/mock/home/.eigent/.env.${sanitizedEmail}`
+      return `/mock/home/.node/.env.${sanitizedEmail}`
     }),
 
     updateEnvBlock: vi.fn().mockImplementation((lines: string[], kv: Record<string, string>) => {
@@ -224,8 +224,8 @@ export function createElectronAPIMock(): MockedElectronAPI {
     getEmailFolderPath: vi.fn().mockImplementation((email: string) => {
       const sanitizedEmail = email.split("@")[0].replace(/[\\/*?:"<>|\s]/g, "_").replace(".", "_")
       return {
-        MCP_REMOTE_CONFIG_DIR: `/mock/home/.eigent/${sanitizedEmail}`,
-        MCP_CONFIG_DIR: '/mock/home/.eigent',
+        MCP_REMOTE_CONFIG_DIR: `/mock/home/.node/${sanitizedEmail}`,
+        MCP_CONFIG_DIR: '/mock/home/.node',
         tempEmail: sanitizedEmail,
         hasToken: mockState.hasToken
       }
@@ -318,7 +318,7 @@ export function createElectronAPIMock(): MockedElectronAPI {
         // Reset environment-related state
         envFileExists: true,
         envContent: 'MOCK_VAR=mock_value\n# === MCP INTEGRATION ENV START ===\nMCP_KEY=test_value\n# === MCP INTEGRATION ENV END ===',
-        eigentDirExists: true,
+        nodeDirExists: true,
         userEmail: 'test@example.com',
         mcpRemoteConfigExists: true,
         hasToken: true,

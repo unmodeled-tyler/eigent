@@ -67,16 +67,16 @@ npm run dev
 docker ps
 
 # 停止/启动 API 容器（保留数据库）
-docker stop eigent_api
-docker start eigent_api
+docker stop node_api
+docker start node_api
 
 # 停止/启动全部（API + DB）
 docker compose stop
 docker compose start
 
 # 查看日志
-docker logs -f eigent_api | cat
-docker logs -f eigent_postgres | cat
+docker logs -f node_api | cat
+docker logs -f node_postgres | cat
 ```
 提示：若拉取镜像缓慢，可在 Docker Desktop 配置国内镜像加速后重试。
 
@@ -86,7 +86,7 @@ docker logs -f eigent_postgres | cat
 如果希望在本地以热重载方式开发 API（数据库仍用 Docker 中的 Postgres）：
 ```bash
 # 1) 停止容器中的 API 服务，仅保留数据库
- docker stop eigent_api
+ docker stop node_api
 
 # 2) 初始化数据库（首次或数据库结构变更时）
  cd server
@@ -94,11 +94,11 @@ docker logs -f eigent_postgres | cat
 
 # 3) 本地启动（需提供数据库连接串）
  # 方式 A：在当前 shell 导出环境变量
- export database_url=postgresql://postgres:123456@localhost:5432/eigent
+ export database_url=postgresql://postgres:123456@localhost:5432/node
  uv run uvicorn main:api --reload --port 3001 --host 0.0.0.0
 
  # 方式 B：在 server/.env 中写入（示例）
- # database_url=postgresql://postgres:123456@localhost:5432/eigent
+ # database_url=postgresql://postgres:123456@localhost:5432/node
  # 然后直接运行同样的 uvicorn 命令
 uv run uvicorn main:api --reload --port 3001 --host 0.0.0.0
 ```

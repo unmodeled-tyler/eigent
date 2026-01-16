@@ -62,9 +62,9 @@ export async function getBinaryName(name: string): Promise<string> {
 }
 
 export async function getBinaryPath(name?: string): Promise<string> {
-  const binariesDir = path.join(os.homedir(), '.eigent', 'bin')
+  const binariesDir = path.join(os.homedir(), '.node', 'bin')
 
-  // Ensure .eigent/bin directory exists
+  // Ensure .node/bin directory exists
   if (!fs.existsSync(binariesDir)) {
     fs.mkdirSync(binariesDir, { recursive: true })
   }
@@ -78,7 +78,7 @@ export async function getBinaryPath(name?: string): Promise<string> {
 }
 
 export function getCachePath(folder: string): string {
-  const cacheDir = path.join(os.homedir(), '.eigent', 'cache', folder)
+  const cacheDir = path.join(os.homedir(), '.node', 'cache', folder)
 
   // Ensure cache directory exists
   if (!fs.existsSync(cacheDir)) {
@@ -89,7 +89,7 @@ export function getCachePath(folder: string): string {
 }
 
 export function getVenvPath(version: string): string {
-  const venvDir = path.join(os.homedir(), '.eigent', 'venvs', `backend-${version}`)
+  const venvDir = path.join(os.homedir(), '.node', 'venvs', `backend-${version}`)
 
   // Ensure venvs directory exists (parent of the actual venv)
   const venvsBaseDir = path.dirname(venvDir)
@@ -101,7 +101,7 @@ export function getVenvPath(version: string): string {
 }
 
 export function getVenvsBaseDir(): string {
-  return path.join(os.homedir(), '.eigent', 'venvs')
+  return path.join(os.homedir(), '.node', 'venvs')
 }
 
 export async function cleanupOldVenvs(currentVersion: string): Promise<void> {

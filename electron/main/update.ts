@@ -40,8 +40,8 @@ export function update(win: Electron.BrowserWindow) {
   }
   const feed = {
     provider: 'github',
-    owner: 'eigent-ai',
-    repo: 'eigent',
+    owner: 'node',
+    repo: 'node',
     releaseType: 'release',
     channel: process.platform === 'darwin' ? (process.arch === 'arm64' ? 'latest-arm64' : 'latest-x64') : 'latest'
   }

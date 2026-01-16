@@ -32,7 +32,7 @@ description: "Follow these simple steps to report bugs and help improve our prod
 
 ### For English-speaking Users:
 
-- Join our **CAMEL-AI Discord**  **🤖｜eigent** channel : https://discord.gg/HgSesTVC for bug discussions and community support
+- Join our **CAMEL-AI Discord**  **🤖｜node** channel : https://discord.gg/HgSesTVC for bug discussions and community support
 - Get direct assistance from our team and community members
 
 ### For Chinese-speaking Users:
@@ -44,7 +44,7 @@ description: "Follow these simple steps to report bugs and help improve our prod
 
 Developers and technical users are welcome to report issues directly through our GitHub issues:
 
-- **Repository URL**: https://github.com/eigent-ai/eigent
+- **Repository URL**: https://github.com/node-ai/node
 - Submit detailed issues with reproduction steps
 
 ## Important Notes

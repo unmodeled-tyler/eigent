@@ -45,7 +45,7 @@ def oauth_callback(app: str, request: Request, code: Optional[str] = None, state
     
     logger.info("OAuth callback received", extra={"provider": app, "has_state": state is not None})
     
-    redirect_url = f"eigent://callback/oauth?provider={app}&code={code}&state={state}"
+    redirect_url = f"node://callback/oauth?provider={app}&code={code}&state={state}"
     html_content = f"""
     <html>
         <head>
